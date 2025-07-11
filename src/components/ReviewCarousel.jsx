@@ -30,9 +30,20 @@ const ReviewCarousel = ({ reviews }) => {
       api.off("reInit", onSelect);
     };
   }, [api]);
+  
+  // Añadir control mediante teclado (flechas izquierda/derecha)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') api?.scrollPrev();
+      if (e.key === 'ArrowRight') api?.scrollNext();
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [api]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto relative">
       <Carousel
         setApi={setApi}
         className="w-full"
@@ -41,6 +52,16 @@ const ReviewCarousel = ({ reviews }) => {
           loop: true,
         }}
       >
+        {/* Flechas de navegación a los lados */}
+        <CarouselPrevious 
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full -ml-4 z-10 bg-primary text-white hover:bg-primary/80 hover:text-white shadow-lg" 
+        />
+        
+        <CarouselNext 
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full mr-4 z-10 bg-primary text-white hover:bg-primary/80 hover:text-white shadow-lg" 
+          style={{ marginRight: "-16px" }}
+        />
+        
         <CarouselContent className="py-4">
           {reviews.map((review, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2 pl-4">
@@ -56,23 +77,22 @@ const ReviewCarousel = ({ reviews }) => {
           ))}
         </CarouselContent>
 
-        <div className="flex justify-center gap-2 mt-8">
-          <CarouselPrevious 
-            className="static transform-none mx-2 bg-primary text-white hover:bg-primary/80 hover:text-white" 
-          />
-          <div className="flex items-center gap-2">
+        <div className="flex justify-center mt-8">
+          <div className="flex items-center gap-3">
             {Array.from({ length: count }).map((_, i) => (
               <span
                 key={i}
-                className={`block h-2 w-2 rounded-full transition-colors ${
-                  i === current ? "bg-primary" : "bg-gray-300"
+                className={`block h-3 w-3 rounded-full transition-colors cursor-pointer ${
+                  i === current ? "bg-primary scale-125" : "bg-gray-300 hover:bg-gray-400"
                 }`}
+                role="button"
+                tabIndex={0}
+                onClick={() => api?.scrollTo(i)}
+                onKeyDown={(e) => e.key === 'Enter' && api?.scrollTo(i)}
+                aria-label={`Ir a la review ${i + 1}`}
               />
             ))}
           </div>
-          <CarouselNext 
-            className="static transform-none mx-2 bg-primary text-white hover:bg-primary/80 hover:text-white" 
-          />
         </div>
       </Carousel>
     </div>
