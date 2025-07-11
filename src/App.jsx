@@ -9,9 +9,49 @@ import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
 import motherImg from './assets/mother2.jpg';
 import SplashScreen from './components/SplashScreen';
+import ReviewCarousel from './components/ReviewCarousel';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+  
+  const reviews = [
+    {
+      name: "Laura Martínez",
+      rating: 4,
+      text: "La visita postparto de Nursana fue fundamental para mí. Me ayudaron con la lactancia y me dieron consejos muy útiles para cuidar de mi bebé. Lo recomiendo totalmente.",
+      date: "Mayo 2025"
+    },
+    {
+      name: "Carmen Sánchez",
+      rating: 5,
+      text: "El servicio de Salus nocturno me permitió descansar después de semanas sin dormir bien. La enfermera fue muy profesional y mi bebé estuvo perfectamente atendido.",
+      date: "Junio 2025"
+    },
+    {
+      name: "Marta Rodríguez",
+      rating: 5,
+      text: "El curso de primeros auxilios me ha dado mucha confianza. Ahora me siento preparada para actuar ante cualquier emergencia. Explicaciones claras y prácticas.",
+      date: "Abril 2025"
+    },
+    {
+      name: "Ana López",
+      rating: 5,
+      text: "La asesoría de lactancia fue justo lo que necesitaba. Mi bebé tenía problemas para agarrarse bien y con su ayuda conseguimos solucionarlo en una sola sesión.",
+      date: "Mayo 2025"
+    },
+    {
+      name: "Elena Gómez",
+      rating: 5,
+      text: "La puesta de pendientes a mi bebé fue rápida y sin complicaciones. Muy profesionales y cuidadosas con mi pequeña. La recomiendo sin dudarlo.",
+      date: "Junio 2025"
+    },
+    {
+      name: "Patricia Fernández",
+      rating: 4,
+      text: "El curso de primeros auxilios ha sido muy completo. Ahora me siento mucho más segura con mi bebé. La enfermera explica todo de forma clara y práctica.",
+      date: "Mayo 2025"
+    }
+  ];
 
   const services = [
     {
@@ -207,8 +247,15 @@ function App() {
             </div>
           </section>
 
-          {/* Contacto Section */}
+          {/* Reviews Section */}
           <section className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+              <ReviewCarousel reviews={reviews} />
+            </div>
+          </section>
+
+          {/* Contacto Section */}
+          <section className="py-20 bg-background">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient">
