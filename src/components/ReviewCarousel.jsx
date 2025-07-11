@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +7,9 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import ReviewCard from './ReviewCard';
+
+// Memoizar el componente ReviewCard para evitar renderizados innecesarios
+const MemoizedReviewCard = memo(ReviewCard);
 
 const ReviewCarousel = ({ reviews }) => {
   const [api, setApi] = useState(null);
@@ -66,7 +69,7 @@ const ReviewCarousel = ({ reviews }) => {
           {reviews.map((review, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2 pl-4">
               <div className="p-1">
-                <ReviewCard 
+                <MemoizedReviewCard 
                   name={review.name}
                   rating={review.rating}
                   text={review.text}

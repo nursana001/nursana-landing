@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './com
 import { Badge } from './components/ui/badge';
 import { Heart, Baby, Clock, Shield, Phone, Mail, Instagram, MessageCircle } from 'lucide-react';
 import './App.css';
-import nurseBaby from './assets/nurse-baby.jpg';
+// Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
 import motherImg from './assets/mother2.jpg';
