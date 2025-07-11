@@ -1,0 +1,56 @@
+:root {
+  --background: #fff2e3;
+  --foreground: #222;
+}
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slideUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+.animate-slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes splashDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(20px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.splash-down {
+  animation: splashDown 1s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+@keyframes splashRightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.splash-right-to-left {
+  animation: splashRightToLeft 1.2s cubic-bezier(0.4,0,0.2,1) both;
+}
