@@ -4,12 +4,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './com
 import { Badge } from './components/ui/badge';
 import { Heart, Baby, Clock, Shield, Phone, Mail, Instagram, MessageCircle } from 'lucide-react';
 import './App.css';
+import './responsive-fixes.css';
+import './final-solution.css'; // SOLUCIÓN FINAL: Corrige todos los problemas
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
 import motherImg from './assets/mother2.jpg';
 import SplashScreen from './components/SplashScreen';
 import ReviewCarousel from './components/ReviewCarousel';
+import RoundedImage from './components/RoundedImage';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -115,44 +118,45 @@ function App() {
       {!showSplash && (
         <div className="min-h-screen bg-background">
           {/* Hero Section */}
-          <section className="relative min-h-screen flex items-end justify-center overflow-hidden">
+          <section className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
             <div className="absolute inset-0 nursana-gradient opacity-10"></div>
-            <div className="absolute top-16 left-32 z-20" style={{ left: 'calc(8rem + 12px + 3cm)' }}>
-              <img src={logonursana} alt="Logo Nursana" className="w-80 h-auto splash-down" />
+            {/* Logo - responsive positioning for all sizes */}
+            <div className="logo-container">
+              <img src={logonursana} alt="Logo Nursana" className="splash-down" />
             </div>
-            {/* Mostrar la imagen solo en la portada (primer section) */}
+            
+            {/* Image - responsive adjustments for different devices */}
             {showSplash === false && (
-              <div className="fixed top-0 right-0 h-[46vh] w-auto flex items-start justify-end z-10 overflow-visible pointer-events-none" style={{position: 'absolute'}}>
-                <img 
+              <div className="image-container full-right-image">
+                <RoundedImage 
                   src={motherImg} 
                   alt="Madre Nursana" 
-                  className="h-[46vh] splash-right-to-left object-contain drop-shadow-xl"
-                  style={{borderRadius: '2rem 0 0 2rem'}}
+                  className="splash-right-to-left drop-shadow-xl rounded-image" 
                 />
               </div>
             )}
             <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-end h-full min-h-screen">
               <div className="text-center fade-in w-full pb-16">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient" style={{wordBreak: 'break-word'}}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient" style={{wordBreak: 'break-word'}}>
                   Descubre nuestros servicios profesionales para madres y recién nacidos
                 </h1>
                 <div className="flex flex-row gap-4 justify-center mt-10">
                   <Button 
                     size="lg" 
-                    className="cta-button bg-primary hover:bg-primary/90 text-white px-6 py-3 text-base min-w-[180px]"
+                    className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px]"
                     onClick={handleWhatsAppClick}
                   >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    Reserva tu cita
+                    <MessageCircle className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="btn-text">Reserva tu cita</span>
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 text-base min-w-[180px]"
+                    className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px]"
                     onClick={handleCallClick}
                   >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Contacta ahora
+                    <Phone className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="btn-text">Contacta ahora</span>
                   </Button>
                 </div>
               </div>

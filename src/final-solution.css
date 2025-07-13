@@ -1,0 +1,353 @@
+/**
+ * SOLUCIÓN FINAL ACTUALIZADA: Corrige todos los problemas con escalado agresivo
+ * - Tamaños correctos para cada dispositivo (40% en móviles y ordenadores grandes, 50% en medianos)
+ * - Mantiene la animación splashRightToLeft
+ * - Aplica transform:scale específico para cada dispositivo sin afectar el tamaño del contenedor
+ * - Asegura bordes redondeados en todos los casos
+ */
+
+/* Definición de la animación */
+@keyframes splashRightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Definición de animaciones específicas con escala */
+@keyframes splashRightToLeft-scale-0-3 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.3);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.3);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-325 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.325);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.325);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.325);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-35 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.35);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.35);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.35);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-375 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.375);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.375);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.375);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-45 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.45);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.45);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.45);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-5 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.5);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-7 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.7);
+  }
+}
+
+@keyframes splashRightToLeft-scale-0-75 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.75);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(0.75);
+  }
+}
+
+@keyframes splashRightToLeft-scale-1 {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(1);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-20px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Contenedor principal - Propiedades base */
+.image-container.full-right-image {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  overflow: hidden !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+/* Imagen con animación - propiedades base sin la animación (se sobreescribe en media queries) */
+.splash-right-to-left.rounded-image {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  object-fit: cover !important;
+  border-radius: 2rem 0 0 2rem !important;
+  -webkit-border-radius: 2rem 0 0 2rem !important;
+  -moz-border-radius: 2rem 0 0 2rem !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform-origin: right !important;
+}
+
+/* Contenedor que mantiene bordes redondeados */
+.rounded-image-container {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  border-radius: 2rem 0 0 2rem !important;
+  -webkit-border-radius: 2rem 0 0 2rem !important;
+  -moz-border-radius: 2rem 0 0 2rem !important;
+}
+
+/* Bordes redondeados adicionales para mayor seguridad */
+.rounded-image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem 0 0 2rem !important;
+  -webkit-border-radius: 2rem 0 0 2rem !important;
+  -moz-border-radius: 2rem 0 0 2rem !important;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* MÓVILES MUY PEQUEÑOS (hasta 320px) - scale(0.3) */
+@media (max-width: 320px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 70% 36% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-3 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* MÓVILES PEQUEÑOS (321px - 375px) - scale(0.325) */
+@media (min-width: 321px) and (max-width: 375px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 70% 36% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-325 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* MÓVILES MEDIANOS (376px - 425px) - scale(0.35) */
+@media (min-width: 376px) and (max-width: 425px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 70% 36% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-35 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* MÓVILES GRANDES (426px - 576px) - scale(0.375) */
+@media (min-width: 426px) and (max-width: 576px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 70% 36% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-375 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* TABLETS PEQUEÑAS (577px - 768px) - scale(0.45) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 70% 36% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-45 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* TABLETS (769px - 1023px) - scale(0.5) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 70% 36% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-5 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* ORDENADORES PEQUEÑOS (1024px - 1280px) - scale(0.7) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .image-container.full-right-image {
+    width: 50% !important;
+    height: 50vh !important;
+    min-width: 50% !important;
+    min-height: 50vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 65% 40% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-7 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* ORDENADORES MEDIANOS (1281px - 1439px) - scale(0.75) */
+@media (min-width: 1281px) and (max-width: 1439px) {
+  .image-container.full-right-image {
+    width: 50% !important;
+    height: 50vh !important;
+    min-width: 50% !important;
+    min-height: 50vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 65% 40% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-0-75 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
+
+/* ORDENADORES GRANDES (>=1440px) - scale(1) */
+@media (min-width: 1440px) {
+  .image-container.full-right-image {
+    width: 40% !important;
+    height: 40vh !important;
+    min-width: 40% !important;
+    min-height: 40vh !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    object-position: 65% 40% !important;
+    transform-origin: right !important;
+    animation: splashRightToLeft-scale-1 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+  }
+}
