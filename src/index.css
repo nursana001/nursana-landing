@@ -53,4 +53,5 @@ body {
 }
 .splash-right-to-left {
   animation: splashRightToLeft 1.2s cubic-bezier(0.4,0,0.2,1) both;
+  border-radius: 2rem 0 0 2rem !important;
 }

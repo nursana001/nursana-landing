@@ -197,3 +197,347 @@ html {
   box-shadow: 0 8px 20px rgba(153, 188, 171, 0.3);
 }
 
+/* Ajustes responsivos para diferentes tamaños de pantalla */
+@media (min-width: 768px) {
+  /* Pantallas medianas (md) en adelante */
+  .splash-right-to-left {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Pantallas de ordenador pequeñas (lg) */
+  .splash-right-to-left {
+    max-width: 90%;
+    width: auto;
+    object-fit: cover;
+    object-position: center right;
+    min-height: 45vh;
+    max-height: 45vh;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Pantallas extra grandes (xl) en adelante */
+  .splash-right-to-left {
+    max-height: 48vh;
+    min-height: 48vh;
+    max-width: none;
+    width: auto;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  /* Pantallas 2xl en adelante */
+  .splash-right-to-left {
+    min-height: 50vh;
+    max-height: 50vh;
+    width: auto;
+    max-width: none;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Tablets */
+  .splash-right-to-left {
+    transition: all 0.3s ease;
+    object-position: right;
+    max-width: 80%;
+    border-radius: 2rem 0 0 2rem !important;
+    -webkit-border-radius: 2rem 0 0 2rem !important;
+    -moz-border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  /* Tablets medianas */
+  .splash-right-to-left {
+    max-width: 80%;
+    min-height: 30vh;
+    max-height: 30vh;
+  }
+}
+
+@media (max-width: 639px) {
+  /* Tablets pequeñas */
+  .splash-right-to-left {
+    max-width: 85%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 479px) {
+  /* Móviles */
+  .splash-right-to-left {
+    max-width: 75%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 374px) {
+  /* Móviles muy pequeños */
+  .splash-right-to-left {
+    max-width: 60%;
+    object-fit: cover;
+  }
+}
+
+/* Mejoras para la visualización del texto en pantallas pequeñas */
+@media (max-width: 480px) {
+  h1.nursana-text-gradient {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+}
+
+/* Estilos adicionales para pantallas muy grandes */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* Ajustes adicionales para la imagen en pantallas grandes */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .splash-right-to-left {
+    height: 45vh !important;
+    width: auto !important;
+    max-width: 90% !important;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .splash-right-to-left {
+    height: 48vh !important;
+    width: auto !important;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .splash-right-to-left {
+    height: 50vh !important;
+    width: auto !important;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+/* Estilos específicos por dispositivo */
+/* Móviles S y M */
+@media (max-width: 639px) {
+  .splash-right-to-left {
+    height: 22vh !important;
+    max-width: 70% !important;
+    border-radius: 2rem 0 0 2rem !important;
+  }
+}
+
+/* Tablets pequeñas */
+@media (min-width: 640px) and (max-width: 767px) {
+  .splash-right-to-left {
+    height: 32vh !important;
+    max-width: 75% !important;
+    border-radius: 2rem 0 0 2rem !important;
+    object-position: right center !important;
+  }
+}
+
+/* Tablets grandes */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .splash-right-to-left {
+    height: 100% !important;
+    width: auto !important;
+    border-radius: 2rem 0 0 2rem !important;
+    min-width: 380px !important;
+    object-position: right center !important;
+  }
+}
+
+/* Ordenadores medianos (1024px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .splash-right-to-left {
+    height: 100% !important;
+    width: auto !important;
+    min-width: 450px !important;
+    border-radius: 2rem 0 0 2rem !important;
+    object-position: right center !important;
+  }
+}
+
+/* Ordenadores grandes */
+@media (min-width: 1440px) {
+  .splash-right-to-left {
+    height: 100% !important;
+    width: auto !important;
+    min-width: 550px !important;
+    border-radius: 2rem 0 0 2rem !important;
+    object-position: right center !important;
+  }
+}
+
+/* Estilos específicos para garantizar bordes redondeados en todos los tamaños de pantalla */
+.rounded-image-container, 
+.rounded-image-container img {
+  border-radius: 2rem 0 0 2rem !important;
+  -webkit-border-radius: 2rem 0 0 2rem !important;
+  -moz-border-radius: 2rem 0 0 2rem !important;
+  overflow: hidden !important;
+}
+
+/* Media query específico para tablets */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .rounded-image-container, 
+  .rounded-image-container img {
+    border-radius: 2rem 0 0 2rem !important;
+    -webkit-border-radius: 2rem 0 0 2rem !important;
+    -moz-border-radius: 2rem 0 0 2rem !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Tamaños específicos para diferentes dispositivos */
+/* Móviles S y M */
+@media (max-width: 639px) {
+  .rounded-image-container img {
+    height: auto !important;
+    min-height: 100% !important;
+    max-width: 70% !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+  }
+}
+
+/* Móviles L */
+@media (min-width: 640px) and (max-width: 767px) {
+  .rounded-image-container img {
+    height: auto !important;
+    min-height: 100% !important;
+    min-width: 320px !important;
+    max-width: none !important;
+    width: auto !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .rounded-image-container img {
+    height: auto !important;
+    min-height: 100% !important;
+    min-width: 380px !important;
+    max-width: none !important;
+    width: auto !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+  }
+}
+
+/* Ordenadores medianos */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .rounded-image-container img {
+    height: auto !important;
+    min-height: 100% !important;
+    min-width: 450px !important;
+    max-width: none !important;
+    width: auto !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+  }
+}
+
+/* Ordenadores grandes */
+@media (min-width: 1440px) {
+  .rounded-image-container img {
+    height: auto !important;
+    min-height: 100% !important;
+    min-width: 550px !important;
+    max-width: none !important;
+    width: auto !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+  }
+}
+
+/* Additional fixes to ensure images touch the right edge with no gap */
+.image-container.full-right-image {
+  right: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  position: absolute !important;
+  width: 40% !important;
+}
+
+.image-container.full-right-image .rounded-image-container {
+  right: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+  position: absolute !important;
+}
+
+.image-container.full-right-image .rounded-image {
+  object-position: right top !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Ensure overflow is hidden to prevent any edge gaps */
+section.relative {
+  overflow: hidden !important;
+}
+
+/* Reduce button text and icon sizes for Mobile S */
+@media (max-width: 374px) {
+  .cta-button, 
+  .cta-button + button {
+    font-size: 0.75rem !important; /* Smaller text */
+    padding: 0.5rem 0.75rem !important; /* Smaller padding */
+    min-width: 130px !important; /* Smaller width */
+  }
+  
+  .cta-button svg,
+  .cta-button + button svg {
+    width: 0.85rem !important;
+    height: 0.85rem !important;
+    margin-right: 0.25rem !important;
+  }
+}
+
+/* Enhanced button styles for Mobile S */
+@media (max-width: 374px) {
+  /* Target both buttons */
+  .btn-reserva,
+  .btn-contacta {
+    font-size: 0.7rem !important;
+    padding: 0.5rem 0.65rem !important;
+    min-width: 120px !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Button icons */
+  .btn-icon {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    margin-right: 0.2rem !important;
+  }
+  
+  /* Button text */
+  .btn-text {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Adjust spacing between buttons */
+  .flex.flex-row.gap-4 {
+    gap: 0.5rem !important;
+  }
+}

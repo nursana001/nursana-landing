@@ -1,0 +1,418 @@
+/**
+ * SOLUCIÓN PARA MÓVILES Y TABLETS: Layout vertical
+ * - Logo arriba centrado 
+ * - Imagen de madre con bebé centrada debajo del logo a ancho completo
+ * - Lema debajo de la imagen
+ * - Botones al final
+ * - Sin solapamiento entre elementos
+ */
+
+/* Ajustes para el contenedor principal en dispositivos pequeños y tablets */
+@media (max-width: 1023px) {
+  /* Estructura del hero section */
+  section.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start !important;
+    padding-top: 0 !important; /* Eliminado padding para subir todo más arriba */
+    overflow-x: hidden;
+    position: relative !important;
+    margin-top: 0 !important;
+    padding-top: 2.5rem !important; /* Añadido padding para dejar espacio al logo absoluto */
+    min-height: 100vh !important; /* Asegurar altura mínima en móviles pequeños */
+  }
+
+  /* Logo centrado arriba - posicionado más arriba y con mayor z-index */
+  .logo-container {
+    position: absolute !important;
+    top: 0.38cm !important; /* 1cm desde arriba */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 100 !important; /* Aumentado el z-index para asegurar que quede por encima de todo */
+  }
+
+  .logo-container img {
+    max-width: 160px !important; /* Reducido más para que no ocupe tanto espacio */
+    height: auto !important;
+  }
+
+  /* Imagen de la madre a ancho completo - ajustada para evitar solapamiento con logo */
+  .image-container.full-right-image {
+    position: relative !important;
+    width: 100vw !important; /* Asegurar que cubre todo el ancho de la ventana */
+    height: 33vh !important; /* Reducido para evitar solapamiento (25% menos que original) */
+    right: auto !important;
+    top: auto !important;
+    margin-bottom: 1rem !important; /* Reducido margen inferior */
+    margin-top: 4rem !important; /* Aumentado espacio desde arriba para evitar solapar con logo */
+    overflow: hidden !important;
+    left: 50% !important; /* Centrar horizontalmente */
+    transform: translateX(-50%) !important; /* Compensar el centrado */
+  }
+
+  .rounded-image-container {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important; /* Eliminado el redondeado */
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .splash-right-to-left.rounded-image {
+    border-radius: 0 !important; /* Eliminado el redondeado */
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    object-position: center 30% !important;
+    animation: fadeIn 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Asegurar que el logo esté perfectamente centrado */
+  body {
+    margin: 0 !important; /* Eliminar márgenes del body que puedan afectar al centrado */
+    padding: 0 !important; 
+    overflow-x: hidden !important; /* Prevenir scroll horizontal */
+  }
+
+  /* Nueva animación para fade-in en lugar de deslizamiento lateral */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Contenedor para el texto y botones */
+  .hero-section .container {
+    position: relative !important;
+    min-height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 1rem !important; /* Reducido para mejor espacio */
+    justify-content: flex-start !important;
+    margin-top: 2rem !important; /* Añadido margen positivo para separar de la imagen */
+  }
+
+  .hero-section .text-center {
+    padding-bottom: 0 !important;
+  }
+
+  /* Ajuste del tamaño de texto para dispositivos pequeños */
+  .hero-section h1 {
+    font-size: 1.75rem !important;
+    margin-bottom: 1.25rem !important; /* Reducido para mejor espacio */
+  }
+
+  /* Ajuste de los botones */
+  .hero-section .flex.flex-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+
+  .hero-section .btn-reserva,
+  .hero-section .btn-contacta {
+    width: 80% !important;
+    max-width: 280px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Centrado vertical del texto y los iconos de los botones */
+  .hero-section .btn-icon,
+  .hero-section .btn-text {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Ajustes específicos para diferentes tamaños de móviles */
+@media (max-width: 375px) {
+  .logo-container img {
+    max-width: 120px !important; /* Reducido para móviles pequeños */
+  }
+  
+  .logo-container {
+    top: 0.2cm !important; /* Subido más para móviles pequeños */
+  }
+
+  .hero-section h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .image-container.full-right-image {
+    height: 30vh !important; /* 33% más pequeña que la original (45vh) */
+    margin-top: 4rem !important; /* Espacio suficiente para evitar solapamiento */
+  }
+  
+  .hero-section .container {
+    padding-top: 0 !important;
+    margin-top: 0 !important; 
+  }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+  .logo-container img {
+    max-width: 130px !important;
+  }
+  
+  .logo-container {
+    top: 0.35cm !important; /* Ajustado para móviles M */
+  }
+  
+  .image-container.full-right-image {
+    height: 33vh !important; /* 25% más pequeña que la original (45vh) */
+    margin-top: 4.5rem !important; /* Espacio para el logo */
+  }
+  
+  /* Ajuste específico para botones en móvil L */
+  .hero-section .btn-reserva,
+  .hero-section .btn-contacta {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 576px) {
+  .logo-container img {
+    max-width: 135px !important;
+  }
+  
+  .logo-container {
+    margin-top: 0.35cm !important; /* 1cm desde arriba ajustado para móviles grandes */
+  }
+  
+  .image-container.full-right-image {
+    height: 36vh !important; /* 20% más pequeña que la original (45vh) */
+  }
+  
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .logo-container img {
+    max-width: 140px !important;
+  }
+  
+  .logo-container {
+    margin-top: 0.38cm !important; /* Exactamente 1cm desde el borde superior */
+  }
+  
+  .image-container.full-right-image {
+    height: 36vh !important; /* 20% más pequeña que la original (45vh) */
+  }
+  
+  .hero-section h1 {
+    font-size: 1.6rem !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .logo-container img {
+    max-width: 160px !important;
+  }
+  
+  .logo-container {
+    margin-top: 0.38cm !important; /* Exactamente 1cm desde el borde superior */
+  }
+  
+  .image-container.full-right-image {
+    height: 36vh !important; /* 20% más pequeña que la original (45vh) */
+  }
+  
+  .hero-section h1 {
+    font-size: 1.8rem !important;
+    max-width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Mantener el diseño original en pantallas grandes */
+@media (min-width: 1024px) {
+  /* No aplicar ninguno de los cambios anteriores */
+}
+
+/* Mejoras adicionales para garantizar la correcta alineación vertical */
+@media (max-width: 1023px) {
+  /* Asegurar que todo el contenido esté perfectamente centrado horizontalmente */
+  .hero-section .text-center,
+  .hero-section .flex.flex-row,
+  .hero-section h1 {
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Ajuste adicional para el espacio entre la imagen y el texto */
+  .hero-section h1 {
+    margin-top: 1rem !important;
+  }
+
+  /* Asegurar que los botones estén centrados y con espacio adecuado */
+  .hero-section .btn-reserva,
+  .hero-section .btn-contacta {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* Ajustes adicionales para garantizar que el logo esté exactamente a 1cm del borde superior */
+@media (min-width: 577px) and (max-width: 1023px) {
+  /* Ajuste exacto para tablets */
+  .logo-container {
+    position: absolute !important;
+    top: 0.38cm !important; /* Exactamente 1cm desde el borde superior */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 50 !important;
+  }
+  
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Eliminar cualquier padding o margen de contenedores superiores */
+  section.hero-section {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    position: relative !important;
+  }
+  
+  /* Asegurar que la imagen quede exactamente 25% más pequeña y cubra todo el ancho */
+  .image-container.full-right-image {
+    width: 100vw !important; /* Cubrir todo el ancho de la ventana */
+    max-width: 100vw !important;
+    height: 33vh !important; /* 25% menos que el tamaño original */
+    margin-top: 5rem !important; /* Aumentado espacio para el logo en tablets */
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Ajustes específicos para dispositivos más pequeños (320px) */
+@media (max-width: 320px) {
+  .logo-container img {
+    max-width: 110px !important; /* Reducido aún más para móviles muy pequeños */
+  }
+  
+  .logo-container {
+    top: 0.15cm !important; /* Subido para móviles muy pequeños */
+  }
+
+  .hero-section h1 {
+    font-size: 1.3rem !important;
+  }
+  
+  .image-container.full-right-image {
+    height: 28vh !important; /* Reducido más para móviles muy pequeños */
+    margin-top: 3.8rem !important; /* Espacio suficiente para evitar solapamiento */
+  }
+  
+  /* Ajustar tamaño de botones para dispositivos muy pequeños */
+  .hero-section .btn-reserva,
+  .hero-section .btn-contacta {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Ajustar tamaño de texto en botones */
+  .hero-section .btn-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Ajustes adicionales para la relación entre logo e imagen en todas las resoluciones */
+@media (max-width: 1023px) {
+  /* Asegurar espacio adecuado entre logo e imagen */
+  section.hero-section {
+    padding-top: 2.5rem !important; /* Espacio para el logo absoluto */
+  }
+  
+  /* Ajustes para asegurar que la imagen nunca se solape con el logo */
+  .image-container.full-right-image {
+    clear: both !important;
+    position: relative !important;
+  }
+  
+  /* Asegurar que los botones tengan un tamaño de texto adecuado y estén centrados */
+  .hero-section .btn-reserva,
+  .hero-section .btn-contacta {
+    font-size: 0.9rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .hero-section .btn-icon,
+  .hero-section .btn-text {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+  }
+}
+
+/* Ajustes específicos para iPads y tablets medianas para evitar solapamiento */
+@media (min-width: 768px) and (max-width: 991px) {
+  .logo-container img {
+    max-width: 150px !important;
+  }
+  
+  .image-container.full-right-image {
+    margin-top: 5.5rem !important; /* Mayor separación en tablets medianas */
+    height: 35vh !important;
+  }
+  
+  section.hero-section {
+    padding-top: 3rem !important; /* Mayor separación en la parte superior */
+  }
+}
+
+/* Ajustes para tablets grandes */
+@media (min-width: 992px) and (max-width: 1023px) {
+  .logo-container img {
+    max-width: 160px !important;
+  }
+  
+  .image-container.full-right-image {
+    margin-top: 6rem !important; /* Mayor separación en tablets grandes */
+    height: 38vh !important;
+  }
+  
+  section.hero-section {
+    padding-top: 3.5rem !important; /* Mayor separación en la parte superior */
+  }
+}
