@@ -1,0 +1,114 @@
+/**
+ * Soluciones para dispositivos de ordenador:
+ * 1. Eliminar el espacio en blanco superior en ordenadores pequeños (14 pulgadas)
+ * 2. Aumentar el tamaño de la imagen SOLO en ordenadores (sin afectar móviles/tablets)
+ */
+
+/* Media query específica para ordenadores pequeños (14 pulgadas) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  /* Ajustar la posición del contenedor de la imagen para eliminar el espacio en blanco superior */
+  html body .image-container.full-right-image {
+    position: absolute !important; /* Asegurar posicionamiento absoluto */
+    top: -1px !important; /* Asegurar que esté pegado al borde superior con un pequeño ajuste negativo */
+    right: -1px !important; /* Asegurar que esté pegado al borde derecho con un pequeño ajuste negativo */
+    margin-top: 0 !important; /* Eliminar cualquier margen que pueda crear espacio */
+    padding-top: 0 !important; /* Eliminar cualquier padding que pueda crear espacio */
+    width: 60% !important; /* Aumento del 20% desde 50% (tamaño base en final-solution.css) */
+    height: 60vh !important; /* Aumento del 20% desde 50vh */
+    min-width: 60% !important; /* Aumento del 20% */
+    min-height: 60vh !important; /* Aumento del 20% */
+    z-index: 10 !important; /* Mantener por encima de otros elementos pero no demasiado alto */
+    overflow: hidden !important; /* Asegurar que la imagen no se salga del contenedor */
+  }
+  
+  /* Ajustar el contenedor interno para eliminar espacio adicional */
+  html body .rounded-image-container {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-top: 0 !important; /* No desplazar el contenedor */
+    padding-top: 0 !important;
+    overflow: hidden !important;
+    border-radius: 2rem 0 0 2rem !important; /* Asegurar bordes redondeados */
+    -webkit-border-radius: 2rem 0 0 2rem !important;
+    -moz-border-radius: 2rem 0 0 2rem !important;
+  }
+  
+  /* Ajustar la imagen para eliminar cualquier espacio en la parte superior */
+  html body .splash-right-to-left.rounded-image {
+    position: absolute !important;
+    top: 0 !important; /* No desplazar la imagen hacia arriba */
+    right: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    object-position: 65% 22% !important; /* Ajustar la posición vertical para mostrar más parte superior */
+    transform-origin: top right !important; /* El escalado se aplica desde la esquina superior derecha */
+    border-radius: 2rem 0 0 2rem !important; /* Asegurar bordes redondeados */
+    -webkit-border-radius: 2rem 0 0 2rem !important;
+    -moz-border-radius: 2rem 0 0 2rem !important;
+  }
+
+  /* Asegurar que la imagen esté perfectamente alineada en 14 pulgadas */
+  @media (width: 1366px) {
+    html body .image-container.full-right-image::before {
+      content: "";
+      position: absolute;
+      top: -1px !important; /* Eliminar cualquier gap con el borde superior */
+      right: -1px !important; /* Eliminar cualquier gap con el borde derecho */
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-color: transparent;
+    }
+  }
+}
+
+/* Media query específica para ordenadores medianos */
+@media (min-width: 1367px) and (max-width: 1439px) {
+  html body .image-container.full-right-image {
+    position: absolute !important;
+    width: 60% !important; /* Aumento del 20% desde 50% (tamaño base en final-solution.css) */
+    height: 60vh !important; /* Aumento del 20% desde 50vh */
+    min-width: 60% !important;
+    min-height: 60vh !important;
+    top: 0 !important; /* Mantener pegado al borde superior */
+    right: 0 !important; /* Mantener pegado al borde derecho */
+    margin-top: 0 !important; /* Eliminar cualquier margen que pueda crear espacio */
+    padding-top: 0 !important; /* Eliminar cualquier padding que pueda crear espacio */
+  }
+  
+  html body .rounded-image-container {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Media query específica para ordenadores grandes */
+@media (min-width: 1440px) {
+  html body .image-container.full-right-image {
+    position: absolute !important;
+    width: 48% !important; /* Aumento del 20% desde 40% (tamaño base en final-solution.css) */
+    height: 48vh !important; /* Aumento del 20% desde 40vh */
+    min-width: 48% !important;
+    min-height: 48vh !important;
+    top: 0 !important; /* Mantener pegado al borde superior */
+    right: 0 !important; /* Mantener pegado al borde derecho */
+    margin-top: 0 !important; /* Eliminar cualquier margen que pueda crear espacio */
+    padding-top: 0 !important; /* Eliminar cualquier padding que pueda crear espacio */
+  }
+  
+  html body .rounded-image-container {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+

@@ -6,6 +6,8 @@ import { Heart, Baby, Clock, Shield, Phone, Mail, Instagram, MessageCircle } fro
 import './App.css';
 import './responsive-fixes.css';
 import './final-solution.css'; // SOLUCIÓN FINAL: Corrige todos los problemas
+import './mobile-layout-solution.css'; // Nueva solución con layout vertical para móviles y tablets
+import './desktop-image-enhancement.css'; // Solución para ordenadores pequeños (14 pulgadas)
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
@@ -120,6 +122,7 @@ function App() {
           {/* Hero Section */}
           <section className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
             <div className="absolute inset-0 nursana-gradient opacity-10"></div>
+            
             {/* Logo - responsive positioning for all sizes */}
             <div className="logo-container">
               <img src={logonursana} alt="Logo Nursana" className="splash-down" />
@@ -135,6 +138,8 @@ function App() {
                 />
               </div>
             )}
+            
+            {/* Content Container - Now with responsive adjustments */}
             <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-end h-full min-h-screen">
               <div className="text-center fade-in w-full pb-16">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient" style={{wordBreak: 'break-word'}}>
@@ -143,20 +148,20 @@ function App() {
                 <div className="flex flex-row gap-4 justify-center mt-10">
                   <Button 
                     size="lg" 
-                    className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px]"
+                    className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px] flex items-center justify-center"
                     onClick={handleWhatsAppClick}
                   >
-                    <MessageCircle className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
-                    <span className="btn-text">Reserva tu cita</span>
+                    <MessageCircle className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                    <span className="btn-text flex items-center">Reserva tu cita</span>
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px]"
+                    className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px] flex items-center justify-center"
                     onClick={handleCallClick}
                   >
-                    <Phone className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
-                    <span className="btn-text">Contacta ahora</span>
+                    <Phone className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
+                    <span className="btn-text flex items-center">Contacta ahora</span>
                   </Button>
                 </div>
               </div>
