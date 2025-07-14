@@ -1,0 +1,273 @@
+/**
+ * Ajustes específicos para la imagen de madre y bebé en dispositivos móviles y tablets
+ * - Mismo ancho que la imagen "Bebé durmiendo Nursana"
+ * - Alto ajustado para mantener la relación de aspecto
+ * - Centrada en el dispositivo sin recorte por la izquierda
+ * - Evita solapamiento con texto y logo
+ */
+
+/* Estilos para móviles y tablets */
+@media (max-width: 1023px) {
+  /* Contenedor de la imagen principal */
+  .image-container.full-right-image {
+    /* Cambiar a posición relativa para evitar problemas de layout */
+    position: relative !important;
+    width: 92% !important; /* Mismo ancho que la imagen bebeDurmiendo (referencia de App.jsx) */
+    max-width: 92% !important;
+    height: auto !important; /* Altura automática basada en contenido */
+    min-height: 30vh !important; /* Altura mínima para asegurar visibilidad */
+    margin: 0 auto !important; /* Centrado horizontal con margen automático */
+    margin-top: 6rem !important; /* Espacio para el logo arriba */
+    margin-bottom: 1rem !important; /* Espacio para contenido abajo */
+    /* Eliminar transformaciones que puedan causar problemas */
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    z-index: 5 !important;
+    overflow: hidden !important;
+    display: block !important;
+  }
+  
+  /* Contenedor interno de la imagen */
+  .rounded-image-container {
+    /* Aplicar los mismos bordes redondeados que bebeDurmiendo */
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    display: block !important;
+    /* Añadir sombra como bebeDurmiendo */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  /* La imagen en sí */
+  .splash-right-to-left.rounded-image {
+    width: 100% !important; /* Ancho completo del contenedor */
+    height: 30vh !important; /* Altura fija para consistencia */
+    object-fit: cover !important; /* Mantener proporción de la imagen */
+    /* Aplicar bordes redondeados consistentes */
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+    display: block !important;
+    margin: 0 auto !important; /* Centrar horizontalmente */
+    /* Centrar la imagen para evitar recorte por la izquierda */
+    object-position: center 40% !important; /* Centrado con ligero enfoque en la parte superior */
+    /* Quitar posicionamiento absoluto que causa problemas */
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+  }
+  
+  /* Mantener sombras para dar profundidad como en bebeDurmiendo */
+  .rounded-image-container .drop-shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  /* Contenedor de texto - ajustado para colocarse debajo de la imagen */
+  .hero-section .container {
+    position: relative !important; /* Cambiado de absolute a relative */
+    z-index: 10 !important;
+    bottom: auto !important; /* No posicionar al fondo */
+    top: auto !important;
+    padding-top: 1rem !important; /* Añadir espacio desde la imagen */
+    margin-top: 0 !important;
+    padding-bottom: 2rem !important;
+    width: 100% !important;
+    min-height: auto !important; /* No forzar altura mínima */
+    justify-content: flex-start !important; /* Alinear contenido desde arriba */
+  }
+  
+  /* Logo - mantener en la parte superior */
+  .logo-container {
+    position: absolute !important;
+    z-index: 20 !important; /* Por encima de todo */
+    top: 1rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .image-container.full-right-image {
+    margin-top: 5rem !important; /* Menos espacio en móviles pequeños */
+    width: 90% !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    height: 25vh !important; /* Altura reducida para móviles pequeños */
+  }
+  
+  /* Ajustar tamaño del texto para móviles pequeños */
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  /* Ajustar botones */
+  .hero-section .flex.flex-row {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 767px) {
+  .image-container.full-right-image {
+    margin-top: 5.5rem !important; /* Espacio para móviles medianos */
+    width: 92% !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    height: 28vh !important; /* Altura para móviles medianos */
+  }
+  
+  /* Ajustar texto */
+  .hero-section h1 {
+    font-size: 1.75rem !important;
+    padding: 0 1rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Ajuste global de la estructura para tablets */
+  section.hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding-top: 2.5rem !important; /* Aumentado para desplazar todo el contenido hacia abajo */
+    padding-bottom: 1rem !important; /* Asegurar espacio en la parte inferior */
+  }
+  
+  /* Ajustes específicos para el texto en la sección hero */
+  .hero-section .text-center {
+    padding-bottom: 1.5rem !important;
+  }
+  
+  /* Ajuste a los botones para que tengan un tamaño consistente */
+  .hero-section .btn-reserva,
+  .hero-section .btn-contacta {
+    min-width: 200px !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+  
+  /* Solución simplificada para tablets */
+  .image-container.full-right-image {
+    height: auto !important; /* Permitir altura automática */
+    min-height: 40vh !important; /* Altura mínima para mostrar la imagen */
+    margin-top: 7.5rem !important; /* Espacio superior para el logo - aumentado para desplazar más hacia abajo */
+    margin-bottom: 2rem !important; /* Espacio inferior para el texto */
+    width: 96% !important; /* Ancho ajustado para tablets */
+    max-width: 900px !important; /* Ancho máximo */
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .rounded-image-container {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important; /* Permitir altura automática */
+    min-height: 40vh !important; /* Altura mínima */
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+    display: block !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 35% !important; /* Ajustar para mostrar la parte central de la imagen */
+    border-radius: 1rem !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+  
+  /* Mejor layout para tablets - desplazar texto hacia abajo */
+  .hero-section .container {
+    padding-top: 2rem !important; /* Espacio desde la imagen al texto */
+    margin-top: 0 !important;
+    position: relative !important;
+    min-height: auto !important;
+  }
+  
+  /* Ajustar botones en tablets */
+  .hero-section .flex.flex-row {
+    justify-content: center !important;
+    gap: 0.875rem !important; /* Reducir aún más el espacio entre botones */
+    margin-top: 1rem !important; /* Ajustar el espacio desde el texto a los botones */
+  }
+  
+  /* Asegurar que el texto no se solape con nada */
+  .hero-section h1 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 2.25rem !important; /* Tamaño de texto adecuado para tablets */
+  }
+  
+  /* Estilos específicos para el contenedor de la imagen en tablets */
+  .rounded-image-container {
+    height: 40vh !important; /* Altura fija igual que la imagen */
+    overflow: hidden !important; /* Mantener contenido dentro del contenedor */
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+    display: block !important;
+  }
+  
+  /* Ajuste adicional para la sombra en tablets */
+  .rounded-image-container .drop-shadow-xl {
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Quitar ajustes adicionales para imágenes que podrían estar causando problemas */
+  
+  /* Mejoras en la visualización de los botones */
+  .btn-reserva, .btn-contacta {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+  }
+  
+  /* Garantizar que el layout se mantiene correcto */
+  .hero-section {
+    overflow-x: hidden !important;
+  }
+  
+  /* Simplificar los estilos de bordes redondeados */
+  .rounded-image-container, 
+  .splash-right-to-left.rounded-image {
+    border-radius: 1rem !important;
+    -webkit-border-radius: 1rem !important;
+    -moz-border-radius: 1rem !important;
+  }
+  
+  /* Ajustar espaciado del texto para compensar la imagen más grande */
+  .hero-section .text-center {
+    margin-top: 1rem !important;
+  }
+  
+  /* Ajustes específicos para el logo en tablets */
+  .logo-container {
+    top: 1.5rem !important; /* Posicionar el logo ligeramente más abajo */
+  }
+  
+  /* Ajuste de posición para la imagen */
+  .splash-right-to-left.rounded-image {
+    top: 1rem !important; /* Desplazar la imagen ligeramente hacia abajo dentro del contenedor */
+  }
+}

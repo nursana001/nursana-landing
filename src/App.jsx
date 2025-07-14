@@ -8,6 +8,7 @@ import './responsive-fixes.css';
 import './final-solution.css'; // SOLUCIÓN FINAL: Corrige todos los problemas
 import './mobile-layout-solution.css'; // Nueva solución con layout vertical para móviles y tablets
 import './desktop-image-enhancement.css'; // Solución para ordenadores pequeños (14 pulgadas)
+import './mother-baby-mobile.css'; // Ajusta la imagen motherImg para igualar ancho con bebeDurmiendo
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
