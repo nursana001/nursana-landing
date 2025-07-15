@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
 import { Badge } from './components/ui/badge';
@@ -9,6 +9,12 @@ import './final-solution.css'; // SOLUCIÓN FINAL: Corrige todos los problemas
 import './mobile-layout-solution.css'; // Nueva solución con layout vertical para móviles y tablets
 import './desktop-image-enhancement.css'; // Solución para ordenadores pequeños (14 pulgadas)
 import './mother-baby-mobile.css'; // Ajusta la imagen motherImg para igualar ancho con bebeDurmiendo
+import './mobile-logo-position.css'; // Posiciona el logo arriba a la izquierda solo en móviles y tablets
+import './mobile-buttons-position.css'; // Estilos básicos para botones en móviles y tablets
+import './mobile-text-above-image.css'; // Posiciona el texto encima de la imagen en móviles y tablets
+import './mobile-sobre-nursana.css'; // Posiciona el título y texto encima de la imagen en la sección "Sobre Nursana"
+import './mobile-services-layout.css'; // Reorganiza la sección de servicios en móviles y tablets
+import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móviles y tablets
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
@@ -19,6 +25,61 @@ import RoundedImage from './components/RoundedImage';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+
+  // Posicionamiento dinámico del botón "Contacta ahora" en dispositivos móviles y tablets
+  useEffect(() => {
+    // Solo ejecutar en móviles y tablets (ancho máximo de 768px)
+    function isMobileOrTablet() {
+      return window.innerWidth <= 768;
+    }
+
+    function positionContactButton() {
+      if (!isMobileOrTablet()) return;
+
+      // Obtener el logo y el botón de contacto
+      const logoContainer = document.querySelector('.logo-container');
+      const logoImg = logoContainer ? logoContainer.querySelector('img') : null;
+      const contactButton = document.querySelector('.hero-section .btn-contacta');
+      
+      if (!logoImg || !contactButton) return;
+      
+      // Obtener la posición y dimensiones del logo
+      const logoRect = logoImg.getBoundingClientRect();
+      
+      // Calcular el centro vertical de la palabra "Nursana" en el logo
+      // (asumimos que la palabra está aproximadamente en el 50% de la altura del logo)
+      const logoCenterY = logoRect.top + (logoRect.height * 0.5);
+      
+      // Obtener dimensiones del botón
+      const buttonRect = contactButton.getBoundingClientRect();
+      
+      // Posicionar el botón para que su centro vertical se alinee con el centro de la palabra "Nursana"
+      const topPosition = logoCenterY - (buttonRect.height / 2);
+      
+      // Aplicar la posición calculada
+      contactButton.style.position = 'fixed';
+      contactButton.style.top = `${topPosition}px`;
+      contactButton.style.right = '2.5rem';
+      contactButton.style.zIndex = '100';
+    }
+
+    // Posicionar inicialmente después de que todo esté cargado
+    if (!showSplash) {
+      const timer = setTimeout(() => {
+        positionContactButton();
+      }, 500); // Un pequeño retraso para asegurar que todo está renderizado
+      
+      // Reposicionar en scroll y resize
+      window.addEventListener('scroll', positionContactButton);
+      window.addEventListener('resize', positionContactButton);
+      
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('scroll', positionContactButton);
+        window.removeEventListener('resize', positionContactButton);
+      };
+    }
+  }, [showSplash]);
   
   const reviews = [
     {
@@ -173,13 +234,15 @@ function App() {
           <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="slide-in-left">
+                {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
+                <div className="slide-in-left desktop-only">
                   <img 
                     src={bebeDurmiendo}
                     alt="Bebé durmiendo Nursana"
                     className="w-full h-auto rounded-2xl shadow-xl"
                   />
                 </div>
+                {/* Contenido de texto que aparecerá primero en móviles/tablets */}
                 <div className="slide-in-right">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 nursana-text-gradient">
                     Sobre Nursana
@@ -200,6 +263,14 @@ function App() {
                     <Badge variant="secondary" className="bg-primary/10 text-primary px-4 py-2">
                       Apoyo profesional
                     </Badge>
+                  </div>
+                  {/* Esta imagen solo aparecerá en móviles/tablets, debajo del texto */}
+                  <div className="mobile-tablet-only mt-8 pt-4">
+                    <img 
+                      src={bebeDurmiendo}
+                      alt="Bebé durmiendo Nursana"
+                      className="w-full h-auto rounded-2xl shadow-xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -229,7 +300,7 @@ function App() {
                         <div className="text-2xl font-bold text-primary">{service.price}</div>
                       </CardHeader>
                       <CardContent>
-                        <CardDescription className="text-base mb-4 leading-relaxed">
+                        <CardDescription className="text-base mb-4 leading-relaxed card-description">
                           {service.description}
                         </CardDescription>
                         <div className="space-y-2">

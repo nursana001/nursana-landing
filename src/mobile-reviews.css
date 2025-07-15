@@ -1,0 +1,30 @@
+/* Estilos para ajustar las reviews en dispositivos móviles y tablets */
+
+@media (max-width: 768px) {
+  /* Contenedor principal de las reviews */
+  .review-carousel {
+    width: 95% !important; /* Reduce el ancho para dejar un pequeño margen */
+    max-width: 100% !important;
+  }
+  
+  /* Reduce el ancho de cada tarjeta de review individual */
+  .review-carousel .carousel-item {
+    width: 90% !important; /* Ancho ligeramente reducido */
+  }
+  
+  /* Reduce el tamaño del texto del nombre del reviewer */
+  .review-name {
+    font-size: 1.05rem !important; /* Reducción de 5 puntos */
+  }
+  
+  /* Reduce el tamaño del texto de la review */
+  .review-text {
+    font-size: 0.9375rem !important; /* Reducción de 5 puntos */
+    line-height: 1.5 !important;
+  }
+  
+  /* Reduce el tamaño del texto de la fecha */
+  .review-date {
+    font-size: 0.75rem !important; /* Reducción de 5 puntos */
+  }
+}

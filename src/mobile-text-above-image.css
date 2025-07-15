@@ -1,0 +1,81 @@
+/* Estilos para posicionar el texto encima de la imagen solo en móviles y tablets */
+
+@media (max-width: 768px) {
+  /* Reestablecer el diseño básico de la sección hero para móviles y tablets */
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    min-height: auto !important;
+    padding: 90px 0 0 0 !important; /* Espacio superior para el logo y botones */
+    position: relative;
+    overflow: visible !important;
+  }
+  
+  /* Logo posición fija arriba */
+  .logo-container {
+    position: relative;
+    z-index: 20;
+    margin-bottom: 30px;
+    padding-top: 15px;
+  }
+  
+  /* Contenido central: primero texto, luego imagen */
+  .hero-section .container {
+    order: 1;
+    min-height: auto !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    padding-top: 60px !important; /* Espacio suficiente para evitar solapamiento con el logo */
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    position: relative; /* Cambiado de static a relative para permitir ajustes */
+  }
+  
+  /* Texto centrado sin desplazamientos pero con margen superior */
+  .hero-section .text-center {
+    padding: 15px 10px 25px !important;
+    margin: 70px 0 0 0 !important; /* Margen superior aumentado */
+    position: relative;
+  }
+  
+  /* Título más pequeño para móviles */
+  .hero-section h1 {
+    font-size: 1.75rem;
+    margin: 0 0 20px 0 !important;
+    max-width: 100%;
+    padding-top: 20px; /* Espacio adicional arriba del título */
+  }
+  
+  /* Contenedor de la imagen debajo del texto */
+  .hero-section .image-container {
+    order: 2;
+    width: 100%;
+    margin: 30px 0 0 0 !important; /* Aumentado el margen superior */
+    position: relative;
+  }
+  
+  /* Hacer que la imagen sea más pequeña y centrada */
+  .hero-section .image-container img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Asegurar que los botones también tengan la posición correcta */
+  .hero-section .flex.flex-row.gap-4 {
+    margin-top: 15px !important;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  /* Forzar espacio entre logo y botón de contacto */
+  .btn-contacta {
+    margin-left: 15px !important;
+  }
+  
+  /* Asegurar espacio suficiente para la sección completa */
+  .hero-section {
+    margin-bottom: 40px !important;
+  }
+}

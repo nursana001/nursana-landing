@@ -75,15 +75,15 @@ const ReviewCard = ({ name, rating, text, date }) => {
     <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
       <CardContent className="p-6">
         <div className="flex justify-between items-center mb-3">
-          <h3 className="font-semibold text-lg">{name}</h3>
-          <span className="text-sm text-muted-foreground">{date}</span>
+          <h3 className="font-semibold text-lg review-name">{name}</h3>
+          <span className="text-sm text-muted-foreground review-date">{date}</span>
         </div>
         
         <div className="flex items-center mb-4">
           {starsElement}
         </div>
         
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground review-text">
           {highlightedText}
         </p>
       </CardContent>

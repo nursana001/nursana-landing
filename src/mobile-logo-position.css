@@ -1,0 +1,70 @@
+/**
+ * Ajuste específico para posicionar el logo en móviles y tablets
+ * Solo afecta a dispositivos con resolución menor a 1024px
+ * - Posición ajustada: 1cm más a la derecha
+ * - Tamaño aumentado: 100% adicional (4x el tamaño original)
+ * - Se desplaza con el scroll como los demás elementos
+ */
+
+@media (max-width: 1023px) {
+  /* Reposicionar el logo con margen desde la izquierda - no fijo */
+  .logo-container {
+    position: absolute !important; /* Cambio de fixed a absolute para que se desplace con el scroll */
+    top: 1.5rem !important;
+    left: 2.5rem !important; /* Aproximadamente 1cm más a la derecha (1cm ≈ 0.75rem) */
+    right: auto !important;
+    bottom: auto !important;
+    width: auto !important;
+    z-index: 100 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    transform: none !important;
+  }
+  
+  /* Ajustar el tamaño del logo - ahora 100% más grande que antes (4x el original) */
+  .logo-container img {
+    height: 10rem !important; /* Duplicado nuevamente (5rem -> 10rem) */
+    width: auto !important; /* Mantener la proporción */
+    max-width: none !important; /* Evitar restricciones de ancho */
+  }
+}
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+  .logo-container {
+    position: absolute !important; /* Consistente con el comportamiento de scroll */
+    top: 1.25rem !important;
+    left: 2.25rem !important; /* Aproximadamente 1cm más a la derecha */
+  }
+  
+  .logo-container img {
+    height: 8rem !important; /* Duplicado el tamaño anterior para tablets */
+  }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 640px) {
+  .logo-container {
+    position: absolute !important; /* Consistente con el comportamiento de scroll */
+    top: 1rem !important;
+    left: 1.75rem !important; /* Aproximadamente 1cm más a la derecha */
+  }
+  
+  .logo-container img {
+    height: 7rem !important; /* Duplicado el tamaño anterior para móviles */
+  }
+}
+
+/* Ajustes para móviles pequeños */
+@media (max-width: 375px) {
+  .logo-container {
+    position: absolute !important; /* Consistente con el comportamiento de scroll */
+    top: 0.75rem !important;
+    left: 1.5rem !important; /* Aproximadamente 1cm más a la derecha */
+  }
+  
+  .logo-container img {
+    height: 6rem !important; /* Duplicado el tamaño anterior para móviles pequeños */
+  }
+}

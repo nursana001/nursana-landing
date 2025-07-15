@@ -1,0 +1,115 @@
+/* Ajustes responsivos para móviles y tablets */
+@media screen and (max-width: 768px) {
+  /* Oculta el botón "Reserva tu cita" en tablets y móviles */
+  .hero-section button.cta-button.btn-reserva,
+  .hero-section .btn-reserva,
+  button.btn-reserva,
+  .btn-reserva {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    visibility: hidden !important;
+  }
+  
+  /* Contenedor principal para posicionamiento de elementos */
+  .min-h-screen.bg-background {
+    position: relative !important;
+  }
+  
+  /* Redefinir el contenedor de botones para que no interfiera */
+  .hero-section .flex.flex-row.gap-4 {
+    position: static !important;
+  }
+  
+  /* Estilos básicos del botón "Contacta ahora" en móviles y tablets */
+  /* El posicionamiento se hace dinámicamente con JavaScript */
+  .hero-section .btn-contacta {
+    /* No establecemos position ni top, se hace por JS */
+    width: auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Ajustar el tamaño del icono para que sea proporcional */
+  .hero-section .btn-contacta .btn-icon {
+    margin-right: 4px !important;
+  }
+  
+  /* Ajustes responsivos para diferentes tamaños de dispositivos */
+  /* Móviles pequeños (S) */
+  @media screen and (max-width: 359px) {
+    .hero-section .btn-contacta {
+      min-width: 90px !important;
+      max-width: 120px !important;
+      font-size: 0.7rem !important;
+      padding: 4px 10px !important;
+      height: 28px !important;
+    }
+    
+    .hero-section .btn-contacta .btn-icon {
+      width: 12px !important;
+      height: 12px !important;
+    }
+  }
+  
+  /* Móviles medianos (M) */
+  @media screen and (min-width: 360px) and (max-width: 480px) {
+    .hero-section .btn-contacta {
+      min-width: 100px !important;
+      max-width: 140px !important;
+      font-size: 0.75rem !important;
+      padding: 6px 12px !important;
+      height: 30px !important;
+    }
+    
+    .hero-section .btn-contacta .btn-icon {
+      width: 14px !important;
+      height: 14px !important;
+    }
+  }
+  
+  /* Móviles grandes (L) */
+  @media screen and (min-width: 481px) and (max-width: 640px) {
+    .hero-section .btn-contacta {
+      min-width: 110px !important;
+      max-width: 150px !important;
+      font-size: 0.75rem !important;
+      padding: 6px 12px !important;
+      height: 32px !important;
+    }
+    
+    .hero-section .btn-contacta .btn-icon {
+      width: 14px !important;
+      height: 14px !important;
+    }
+  }
+  
+  /* Tablets */
+  @media screen and (min-width: 641px) and (max-width: 768px) {
+    .hero-section .btn-contacta {
+      min-width: 120px !important;
+      max-width: 160px !important;
+      font-size: 0.8rem !important;
+      padding: 8px 16px !important;
+      height: 35px !important;
+    }
+    
+    .hero-section .btn-contacta .btn-icon {
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+  
+  /* Asegurar que el texto del botón sea visible pero no demasiado grande */
+  .hero-section .btn-contacta .btn-text {
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+}

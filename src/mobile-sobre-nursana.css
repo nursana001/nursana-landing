@@ -1,0 +1,48 @@
+/* Estilos para mostrar/ocultar elementos según el dispositivo */
+
+/* Por defecto, los elementos mobile-tablet-only están ocultos */
+.mobile-tablet-only {
+  display: none;
+}
+
+/* Para dispositivos móviles y tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Mostrar elementos exclusivos para móvil y tablet */
+  .mobile-tablet-only {
+    display: block;
+  }
+  
+  /* Ocultar elementos exclusivos para desktop */
+  .desktop-only {
+    display: none;
+  }
+  
+  /* Ajustes adicionales para el título */
+  section.py-20.bg-white h2.nursana-text-gradient {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Centrar texto en móviles y tablets */
+  section.py-20.bg-white .slide-in-right {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Reducir tamaño de texto para párrafos pero no para el título */
+  section.py-20.bg-white .slide-in-right p.text-lg {
+    font-size: 0.9375rem !important; /* Reducción de 5 puntos del tamaño base */
+    line-height: 1.5 !important;
+  }
+  
+  /* El título mantiene su tamaño original */
+  section.py-20.bg-white .slide-in-right h2 {
+    font-size: 1.875rem !important; /* Equivalente a text-3xl */
+  }
+  
+  /* Centrar los badges */
+  section.py-20.bg-white .flex.flex-wrap {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+}

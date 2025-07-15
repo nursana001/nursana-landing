@@ -79,7 +79,7 @@ const ReviewCarousel = ({ reviews }) => {
   }, [api, count]);
 
   return (
-    <div className="w-full max-w-5xl mx-auto relative px-4 sm:px-6 md:px-8">
+    <div className="w-full max-w-5xl mx-auto relative px-4 sm:px-6 md:px-8 review-carousel">
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {current !== null && `Mostrando testimonio ${current + 1} de ${count}`}
       </div>
@@ -112,7 +112,7 @@ const ReviewCarousel = ({ reviews }) => {
           {React.useMemo(() => reviews.map((review, index) => (
             <CarouselItem 
               key={index} 
-              className="basis-full sm:basis-3/4 md:basis-1/2 lg:basis-1/2 pl-4"
+              className="basis-full sm:basis-3/4 md:basis-1/2 lg:basis-1/2 pl-4 carousel-item"
               role="tabpanel"
               id={`testimonio-panel-${index}`}
               aria-labelledby={`testimonio-tab-${index}`}
