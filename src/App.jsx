@@ -15,6 +15,7 @@ import './mobile-text-above-image.css'; // Posiciona el texto encima de la image
 import './mobile-sobre-nursana.css'; // Posiciona el título y texto encima de la imagen en la sección "Sobre Nursana"
 import './mobile-services-layout.css'; // Reorganiza la sección de servicios en móviles y tablets
 import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móviles y tablets
+import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel de reviews para evitar solapamiento en móviles
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';

@@ -1,0 +1,84 @@
+/* 
+ * Ajustes para los botones del carrusel de reviews en dispositivos móviles
+ * - Desplaza el botón izquierdo más a la izquierda
+ * - Desplaza el botón derecho más a la derecha
+ * - Evita solapamiento con el contenido de las reviews
+ */
+
+@media (max-width: 767px) {
+  /* Ajuste para el botón de navegación anterior (izquierdo) */
+  .review-carousel .embla__button--prev,
+  .review-carousel [data-slot="carousel-previous"],
+  .review-carousel .CarouselPrevious,
+  .review-carousel button[aria-label="Ver testimonios anteriores"] {
+    left: -12px !important; /* Desplaza más a la izquierda */
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
+    background-color: var(--primary) !important;
+    color: white !important;
+  }
+
+  /* Ajuste para el botón de navegación siguiente (derecho) */
+  .review-carousel .embla__button--next,
+  .review-carousel [data-slot="carousel-next"],
+  .review-carousel .CarouselNext,
+  .review-carousel button[aria-label="Ver testimonios siguientes"] {
+    right: -12px !important; /* Desplaza más a la derecha */
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
+    background-color: var(--primary) !important;
+    color: white !important;
+  }
+  
+  /* Aseguramos que los botones tengan un tamaño adecuado para móviles */
+  .review-carousel [data-slot="carousel-previous"],
+  .review-carousel [data-slot="carousel-next"] {
+    height: 32px !important;
+    width: 32px !important;
+    min-height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  /* Ajuste específico para dispositivos pequeños (S y M) */
+  @media (max-width: 374px) {
+    .review-carousel [data-slot="carousel-previous"],
+    .review-carousel button[aria-label="Ver testimonios anteriores"] {
+      left: -8px !important;
+      height: 28px !important;
+      width: 28px !important;
+    }
+
+    .review-carousel [data-slot="carousel-next"],
+    .review-carousel button[aria-label="Ver testimonios siguientes"] {
+      right: -8px !important;
+      height: 28px !important;
+      width: 28px !important;
+    }
+  }
+
+  /* Ajuste específico para móviles medianos */
+  @media (min-width: 375px) and (max-width: 480px) {
+    .review-carousel [data-slot="carousel-previous"],
+    .review-carousel button[aria-label="Ver testimonios anteriores"] {
+      left: -10px !important;
+    }
+
+    .review-carousel [data-slot="carousel-next"],
+    .review-carousel button[aria-label="Ver testimonios siguientes"] {
+      right: -10px !important;
+    }
+  }
+
+  /* Ajuste para móviles grandes */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .review-carousel [data-slot="carousel-previous"],
+    .review-carousel button[aria-label="Ver testimonios anteriores"] {
+      left: -14px !important;
+    }
+
+    .review-carousel [data-slot="carousel-next"],
+    .review-carousel button[aria-label="Ver testimonios siguientes"] {
+      right: -14px !important;
+    }
+  }
+}
