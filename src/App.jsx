@@ -16,6 +16,7 @@ import './mobile-sobre-nursana.css'; // Posiciona el título y texto encima de l
 import './mobile-services-layout.css'; // Reorganiza la sección de servicios en móviles y tablets
 import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móviles y tablets
 import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel de reviews para evitar solapamiento en móviles
+import './small-computer-service-button-fix.css'; // Corrige el tamaño del botón "Solicitar información" en ordenadores pequeños
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
@@ -168,7 +169,7 @@ function App() {
   };
 
   const handleEmailClick = () => {
-    window.open('mailto:nursana@outlook.com', '_blank');
+    window.open('mailto:hola@nursana.es', '_blank');
   };
 
   const handleInstagramClick = () => {
@@ -370,7 +371,7 @@ function App() {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold mb-2">Email</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">nursana@outlook.com</p>
+                  <p className="text-muted-foreground mb-4 text-sm">hola@nursana.es</p>
                   <Button 
                     variant="outline" 
                     size="sm" 

@@ -69,7 +69,7 @@ Para desplegar la aplicación en producción:
 
 Para más información sobre los servicios de Nursana:
 
-- 📧 **Email**: nursana@outlook.com
+- 📧 **Email**: hola@nursana.es
 
 ## 📝 Licencia
 

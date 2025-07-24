@@ -1,0 +1,25 @@
+/**
+ * Ajustes específicos para botones de servicios en ordenadores pequeños
+ * Asegura que el botón "Solicitar información" tenga suficiente ancho para contener el texto completo
+ * Solo se aplica a pantallas de ordenadores pequeños (entre 1024px y 1366px)
+ */
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  /* Ajuste para el botón "Solicitar información" en la sección de servicios */
+  .service-card .w-1\/4.mt-6 {
+    width: auto !important; /* Anula el ancho fijo del 25% */
+    min-width: 180px !important; /* Asegura un ancho mínimo que contenga el texto */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Si es necesario un ajuste más específico para tamaños muy específicos */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .service-card .w-1\/4.mt-6 {
+    min-width: 200px !important; /* Ancho mínimo un poco mayor para pantallas más pequeñas */
+  }
+}
+
+/* Esto no afectará a dispositivos móviles ni tablets (debajo de 1024px) */
+/* Tampoco afectará a ordenadores grandes (más de 1366px) */
