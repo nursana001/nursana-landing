@@ -6,20 +6,53 @@
 
 @media (min-width: 1024px) and (max-width: 1366px) {
   /* Ajuste para el botón "Solicitar información" en la sección de servicios */
-  .service-card .w-1\/4.mt-6 {
+  .service-card .w-1\/4.mt-6,
+  .w-1\/4.mt-6.bg-primary,
+  button.w-1\/4.mt-6 {
     width: auto !important; /* Anula el ancho fijo del 25% */
-    min-width: 180px !important; /* Asegura un ancho mínimo que contenga el texto */
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    min-width: 250px !important; /* Asegura un ancho mínimo que contenga el texto */
+    max-width: none !important; /* Elimina cualquier límite de ancho máximo */
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
 }
 
 /* Si es necesario un ajuste más específico para tamaños muy específicos */
 @media (min-width: 1024px) and (max-width: 1200px) {
-  .service-card .w-1\/4.mt-6 {
-    min-width: 200px !important; /* Ancho mínimo un poco mayor para pantallas más pequeñas */
+  .service-card .w-1\/4.mt-6,
+  .w-1\/4.mt-6.bg-primary,
+  button.w-1\/4.mt-6 {
+    min-width: 280px !important; /* Ancho mínimo más generoso para pantallas más pequeñas */
+    width: fit-content !important; /* Ajusta el ancho al contenido */
   }
 }
+
+/* Aseguramos que el texto dentro del botón no se corte */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .service-card .w-1\/4.mt-6,
+  .w-1\/4.mt-6.bg-primary,
+  button.w-1\/4.mt-6 {
+    white-space: nowrap !important; /* Evita que el texto se corte */
+    display: inline-block !important; /* Asegura que el botón se ajuste al contenido */
+    font-size: 0.95rem !important; /* Ajuste de tamaño de fuente para asegurar que quepa */
+  }
+}
+
+/* Corrección específica para dispositivos con problemas particulares */
+@media screen and (min-width: 1024px) and (max-width: 1366px) and (max-height: 768px) {
+  .service-card .w-1\/4.mt-6,
+  .w-1\/4.mt-6.bg-primary,
+  button.w-1\/4.mt-6,
+  button.bg-primary.w-1\/4 {
+    width: 100% !important; /* Usa todo el ancho disponible */
+    min-width: 300px !important; /* Asegura un mínimo muy amplio */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Los ajustes para los botones "Contacta ahora" y "Reserva tu cita" ahora están en horizontal-buttons-fix.css */
 
 /* Esto no afectará a dispositivos móviles ni tablets (debajo de 1024px) */
 /* Tampoco afectará a ordenadores grandes (más de 1366px) */

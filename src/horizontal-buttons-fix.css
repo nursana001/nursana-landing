@@ -1,0 +1,57 @@
+/**
+ * Solución específica para asegurar que los botones de la cabecera aparezcan
+ * uno al lado del otro en pantallas pequeñas (<14 pulgadas)
+ */
+
+/* Estilo global forzado para mantener los botones horizontales */
+#horizontal-buttons-container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Anulación de cualquier estilo que pueda interferir */
+#horizontal-buttons-container > * {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Estilos para asegurar el espaciado correcto */
+#horizontal-buttons-container button {
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media all and (min-width: 1024px) and (max-width: 1366px) {
+  /* Forzar la disposición horizontal incluso en pantallas pequeñas */
+  #horizontal-buttons-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  /* Ajustes específicos para los botones */
+  #horizontal-buttons-container .btn-reserva,
+  #horizontal-buttons-container .btn-contacta {
+    white-space: nowrap !important;
+    font-size: 0.9rem !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    width: auto !important;
+    min-width: auto !important;
+  }
+}
+
+/* Forzar la visualización horizontal incluso en el caso más extremo */
+@media screen {
+  #horizontal-buttons-container {
+    flex-direction: row !important;
+    display: flex !important;
+  }
+}

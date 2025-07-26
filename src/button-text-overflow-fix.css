@@ -1,0 +1,29 @@
+/**
+ * Solución específica para problemas de desbordamiento de texto en botones
+ * Este archivo contiene reglas CSS de último recurso para asegurar que el texto
+ * de los botones se muestre correctamente en pantallas problemáticas
+ */
+
+/* Correcciones generales para cualquier botón con problemas de desbordamiento */
+button {
+  overflow: visible !important;
+}
+
+/* Correcciones específicas para el botón "Solicitar información" */
+.bg-primary.w-1\/4.mt-6,
+button.w-1\/4.mt-6,
+.service-card button {
+  width: fit-content !important;
+  min-width: 300px !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+}
+
+/* Asegurar que el botón use todo el ancho necesario en pantallas pequeñas */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .service-card button,
+  button.w-1\/4 {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}

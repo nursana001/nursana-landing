@@ -1,0 +1,56 @@
+/**
+ * Ajustes específicos para los botones "Contacta ahora" y "Reserva tu cita" en ordenadores pequeños (<14 pulgadas)
+ * Asegura que los botones se muestren uno al lado del otro y no apilados
+ * Solo se aplica a pantallas de ordenadores pequeños (entre 1024px y 1366px)
+ */
+
+/* Reglas generales que se aplican siempre */
+.buttons-container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.buttons-container > div {
+  flex: 1 1 50% !important;
+  max-width: 50% !important;
+}
+
+.buttons-container .btn-reserva,
+.buttons-container .btn-contacta {
+  white-space: nowrap !important;
+}
+
+/* Reglas específicas para pantallas pequeñas */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .buttons-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.5rem !important;
+    justify-content: center !important;
+  }
+
+  /* Ajustes específicos para los botones */
+  .btn-reserva,
+  .btn-contacta {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    font-size: 0.9rem !important;
+    width: auto !important;
+  }
+
+  /* Reduce el espacio entre el icono y el texto */
+  .btn-icon {
+    margin-right: 0.25rem !important;
+  }
+}
+
+/* Ajustes específicos para pantallas aún más pequeñas */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .btn-reserva,
+  .btn-contacta {
+    font-size: 0.85rem !important;
+  }
+}

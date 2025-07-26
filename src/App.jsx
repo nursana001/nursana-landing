@@ -17,6 +17,8 @@ import './mobile-services-layout.css'; // Reorganiza la sección de servicios en
 import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móviles y tablets
 import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel de reviews para evitar solapamiento en móviles
 import './small-computer-service-button-fix.css'; // Corrige el tamaño del botón "Solicitar información" en ordenadores pequeños
+import './button-text-overflow-fix.css'; // Solución adicional para problemas específicos de desbordamiento de texto en botones
+import './horizontal-buttons-fix.css'; // Nueva solución para que los botones aparezcan uno al lado del otro
 // Eliminamos la importación no utilizada de nurseBaby
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
@@ -209,23 +211,25 @@ function App() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient" style={{wordBreak: 'break-word'}}>
                   Descubre nuestros servicios profesionales para madres y recién nacidos
                 </h1>
-                <div className="flex flex-row gap-4 justify-center mt-10">
+                {/* Contenedor simplificado con botones directamente horizontales */}
+                <div className="flex justify-center mt-10" id="horizontal-buttons-container">
                   <Button 
                     size="lg" 
-                    className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px] flex items-center justify-center"
+                    className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 py-3 mx-2"
                     onClick={handleWhatsAppClick}
                   >
-                    <MessageCircle className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
-                    <span className="btn-text flex items-center">Reserva tu cita</span>
+                    <MessageCircle className="btn-icon w-4 h-4 mr-2 flex-shrink-0" />
+                    <span>Reserva tu cita</span>
                   </Button>
+                  
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 py-3 text-sm sm:text-base min-w-[160px] sm:min-w-[180px] flex items-center justify-center"
+                    className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 py-3 mx-2"
                     onClick={handleCallClick}
                   >
-                    <Phone className="btn-icon w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 flex-shrink-0" />
-                    <span className="btn-text flex items-center">Contacta ahora</span>
+                    <Phone className="btn-icon w-4 h-4 mr-2 flex-shrink-0" />
+                    <span>Contacta ahora</span>
                   </Button>
                 </div>
               </div>
@@ -317,8 +321,9 @@ function App() {
                           </ul>
                         </div>
                         <Button 
-                          className="w-1/4 mt-6 bg-primary hover:bg-primary/90 mx-auto block"
+                          className="w-auto min-w-[300px] mt-6 bg-primary hover:bg-primary/90 mx-auto block"
                           onClick={handleWhatsAppClick}
+                          style={{whiteSpace: 'nowrap'}}
                         >
                           Solicitar información
                         </Button>
