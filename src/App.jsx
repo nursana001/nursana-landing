@@ -89,7 +89,7 @@ function App() {
     {
       name: "Laura Martínez",
       rating: 4,
-      text: "La visita postparto de Nursana fue fundamental para mí. Me ayudaron con la lactancia y me dieron consejos muy útiles para cuidar de mi bebé. Lo recomiendo totalmente.",
+      text: "La asesoría de lactancia de Nursana fue fundamental para mí. Me ayudaron a resolver todas mis dudas sobre la lactancia y me dieron consejos muy útiles para el cuidado de mi bebé. Lo recomiendo totalmente.",
       date: "Mayo 2025"
     },
     {
