@@ -126,13 +126,6 @@ function App() {
 
   const services = [
     {
-      title: "Visita postparto",
-      description: "Apoyo profesional tras el parto para ayudarte con lactancia, cuidados del bebé, bienestar materno y resolución de dudas en la tranquilidad de tu hogar.",
-      price: "1 visita: 70€ | 2 visitas: 130€",
-      includes: ["Desplazamiento", "Visita de 1 hora y media", "Valoración personalizada"],
-      icon: <Shield className="w-8 h-8 text-primary" />
-    },
-    {
       title: "Asesoría de lactancia",
       description: "Te acompañamos en el inicio y desarrollo de la lactancia, resolviendo dudas y ayudando a superar cualquier dificultad. Nuestro objetivo es que vivas la lactancia de forma tranquila, informada y segura.",
       price: "120€",
