@@ -244,20 +244,20 @@ function App() {
                 {/* Contenido de texto que aparecerá primero en móviles/tablets */}
                 <div className="slide-in-right">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 nursana-text-gradient">
-                    Sobre Nursana
+                    Sobre mi
                   </h2>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     Soy María, tengo 32 años y soy enfermera. Terminé la carrera en 2015 y desde entonces he desarrollado mi vocación en distintos ámbitos relacionados con la salud infantil y materna. He trabajado en urgencias —incluyendo las pediátricas—, en la UCI neonatal y actualmente formo parte de una planta de maternidad, donde acompañamos muy de cerca a las familias en el inicio de la lactancia.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    A lo largo de estos años me he formado en diferentes aspectos del recién nacido y del niño, convencida de que una atención actualizada y basada en la evidencia puede marcar una gran diferencia en los primeros momentos de vida. Además, cuento con un Máster en Emergencias por la Universidad CEU, que me ha permitido adquirir una visión amplia y resolutiva en situaciones críticas.
+                    A lo largo de estos años me he formado en diferentes aspectos del recién nacido y del niño, convencida de que una atención actualizada y basada en la evidencia puede marcar una gran diferencia en los primeros momentos de vida. Además, cuento con un Máster en Urgencias, Emergencias y Transporte Sanitario por la Universidad CEU San Pablo, que me ha permitido adquirir una visión amplia y resolutiva en situaciones críticas.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     Con Nursana quiero poner toda mi experiencia y formación al servicio de las familias, ofreciendo apoyo profesional y cercano en una etapa tan importante como la llegada de un bebé.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <Badge variant="secondary" className="bg-primary/10 text-primary px-4 py-2">
-                      Enfermeras especializadas
+                      Enfermera especializada
                     </Badge>
                     <Badge variant="secondary" className="bg-primary/10 text-primary px-4 py-2">
                       Cuidado personalizado
@@ -343,9 +343,9 @@ function App() {
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient">
-                  Contacta con nosotras
+                  Contacta con Nursana
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-2">
                   Estamos aquí para resolver todas tus dudas y acompañarte en esta hermosa etapa
                 </p>
               </div>
