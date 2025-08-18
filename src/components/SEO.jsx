@@ -1,14 +1,25 @@
 import { useEffect } from 'react';
+import { getCurrentCanonicalUrl, getCurrentRouteInfo } from '../utils/canonicalUrls';
 
 const SEO = ({ 
-  title = "Nursana | Enfermera especializada en cuidado de bebés y lactancia en Madrid",
-  description = "Servicios profesionales de enfermería neonatal para bebés y madres en Madrid: asesoría personalizada de lactancia materna, puesta de pendientes para bebés, curso de primeros auxilios infantil y cuidado nocturno domiciliario (salus). Enfermera titulada con experiencia especializada en cuidados del recién nacido y apoyo en maternidad.",
-  url = "https://www.nursana.es",
+  title = null, // Será calculado dinámicamente si no se proporciona
+  description = null, // Será calculado dinámicamente si no se proporciona
+  url = null, // Será calculada dinámicamente si no se proporciona
   image = "https://www.nursana.es/favicon.png"
 }) => {
   useEffect(() => {
+    // Obtener información de la ruta actual
+    const routeInfo = getCurrentRouteInfo();
+    
+    // Calcular title y description dinámicamente si no se proporcionan
+    const dynamicTitle = title || routeInfo.title;
+    const dynamicDescription = description || routeInfo.description;
+    
+    // Calcular URL canónica dinámicamente si no se proporciona
+    const canonicalUrl = url || getCurrentCanonicalUrl();
+    
     // Update document title
-    document.title = title;
+    document.title = dynamicTitle;
 
     // Update meta tags
     const updateMetaTag = (name, content, attribute = 'name') => {
@@ -22,21 +33,21 @@ const SEO = ({
     };
 
     // Basic meta tags
-    updateMetaTag('description', description);
+    updateMetaTag('description', dynamicDescription);
     updateMetaTag('keywords', 'enfermera, cuidado bebés, lactancia materna, primeros auxilios, Madrid, enfermería neonatal, asesoría lactancia, puesta pendientes bebé, cuidado nocturno, salus');
 
     // Open Graph tags
-    updateMetaTag('og:title', title, 'property');
-    updateMetaTag('og:description', description, 'property');
-    updateMetaTag('og:url', url, 'property');
+    updateMetaTag('og:title', dynamicTitle, 'property');
+    updateMetaTag('og:description', dynamicDescription, 'property');
+    updateMetaTag('og:url', canonicalUrl, 'property');
     updateMetaTag('og:image', image, 'property');
     updateMetaTag('og:type', 'website', 'property');
     updateMetaTag('og:locale', 'es_ES', 'property');
 
     // Twitter Card tags
     updateMetaTag('twitter:card', 'summary_large_image', 'name');
-    updateMetaTag('twitter:title', title, 'name');
-    updateMetaTag('twitter:description', description, 'name');
+    updateMetaTag('twitter:title', dynamicTitle, 'name');
+    updateMetaTag('twitter:description', dynamicDescription, 'name');
     updateMetaTag('twitter:image', image, 'name');
 
     // Canonical URL
@@ -46,14 +57,14 @@ const SEO = ({
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', url);
+    canonical.setAttribute('href', canonicalUrl);
     // Schema.org structured data for healthcare service
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "HealthAndBeautyBusiness",
       "name": "Nursana",
       "description": "Servicios profesionales de enfermería para bebés y madres. Enfermera titulada especializada en cuidado neonatal, asesoría de lactancia y primeros auxilios.",
-      "url": "https://www.nursana.es",
+      "url": canonicalUrl,
       "logo": "https://www.nursana.es/favicon.png",
       "image": "https://www.nursana.es/favicon.png",
       "telephone": "+34681882717",
@@ -201,7 +212,7 @@ const SEO = ({
         document.head.removeChild(existingScript);
       }
     };
-  }, []);
+  }, [title, description, url, image]);
 
   return null; // This component doesn't render anything visible
 };
