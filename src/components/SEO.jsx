@@ -1,7 +1,52 @@
 import { useEffect } from 'react';
 
-const SEO = () => {
+const SEO = ({ 
+  title = "Nursana | Enfermera especializada en cuidado de bebés y lactancia en Madrid",
+  description = "Servicios profesionales de enfermería neonatal para bebés y madres en Madrid: asesoría personalizada de lactancia materna, puesta de pendientes para bebés, curso de primeros auxilios infantil y cuidado nocturno domiciliario (salus). Enfermera titulada con experiencia especializada en cuidados del recién nacido y apoyo en maternidad.",
+  url = "https://www.nursana.es",
+  image = "https://www.nursana.es/favicon.png"
+}) => {
   useEffect(() => {
+    // Update document title
+    document.title = title;
+
+    // Update meta tags
+    const updateMetaTag = (name, content, attribute = 'name') => {
+      let meta = document.querySelector(`meta[${attribute}="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute(attribute, name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    // Basic meta tags
+    updateMetaTag('description', description);
+    updateMetaTag('keywords', 'enfermera, cuidado bebés, lactancia materna, primeros auxilios, Madrid, enfermería neonatal, asesoría lactancia, puesta pendientes bebé, cuidado nocturno, salus');
+
+    // Open Graph tags
+    updateMetaTag('og:title', title, 'property');
+    updateMetaTag('og:description', description, 'property');
+    updateMetaTag('og:url', url, 'property');
+    updateMetaTag('og:image', image, 'property');
+    updateMetaTag('og:type', 'website', 'property');
+    updateMetaTag('og:locale', 'es_ES', 'property');
+
+    // Twitter Card tags
+    updateMetaTag('twitter:card', 'summary_large_image', 'name');
+    updateMetaTag('twitter:title', title, 'name');
+    updateMetaTag('twitter:description', description, 'name');
+    updateMetaTag('twitter:image', image, 'name');
+
+    // Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', url);
     // Schema.org structured data for healthcare service
     const structuredData = {
       "@context": "https://schema.org",

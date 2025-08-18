@@ -5,6 +5,21 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- GitHub Pages SPA Support -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    
     <!-- SEO Meta Tags -->
     <title>Nursana - Enfermera especializada en cuidado de bebés y madres | Madrid</title>
     <meta name="description" content="Servicios profesionales de enfermería para bebés y madres en Madrid. Asesoría de lactancia, puesta de pendientes, primeros auxilios y cuidado nocturno. Enfermera titulada con experiencia en UCI neonatal." />
