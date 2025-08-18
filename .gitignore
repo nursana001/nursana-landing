@@ -13,7 +13,7 @@ node_modules
 .pnp.js
 
 # Build outputs
-dist
+# dist  # Commented out to include build files in repo
 dist-ssr
 *.local
 build
