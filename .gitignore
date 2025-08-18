@@ -13,8 +13,9 @@ node_modules
 .pnp.js
 
 # Build outputs
-# dist  # Commented out to include build files in repo
+dist
 dist-ssr
+# docs  # Keep docs for GitHub Pages deployment
 *.local
 build
 coverage
