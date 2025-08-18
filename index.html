@@ -36,6 +36,30 @@
     <meta name="geo.position" content="40.4168;-3.7038" />
     <meta name="ICBM" content="40.4168, -3.7038" />
     
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="/favicon.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/src/assets/mother2.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/src/assets/logonursana.png" as="image" fetchpriority="high" />
+    
+    <!-- DNS prefetch para dominios externos -->
+    <link rel="dns-prefetch" href="//wa.me" />
+    <link rel="dns-prefetch" href="//www.instagram.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Preconnect para conexiones críticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Prefetch de recursos no críticos -->
+    <link rel="prefetch" href="/src/assets/bebe-durmiendo.jpeg" as="image" />
+    <link rel="prefetch" href="/src/assets/logo.png" as="image" />
+    
+    <!-- Prefetch de chunks de JavaScript para mejor UX -->
+    <link rel="modulepreload" href="/src/components/ReviewCarousel.jsx" />
+    <link rel="modulepreload" href="/src/components/ServicesSection.jsx" />
+    <link rel="modulepreload" href="/src/components/ContactSection.jsx" />
+    
     <!-- Schema.org structured data will be added via JavaScript in the component -->
   </head>
   <body>

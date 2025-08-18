@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
 import { Badge } from './components/ui/badge';
@@ -19,17 +19,109 @@ import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel d
 import './small-computer-service-button-fix.css'; // Corrige el tamaño del botón "Solicitar información" en ordenadores pequeños
 import './button-text-overflow-fix.css'; // Solución adicional para problemas específicos de desbordamiento de texto en botones
 import './horizontal-buttons-fix.css'; // Nueva solución para que los botones aparezcan uno al lado del otro
-// Eliminamos la importación no utilizada de nurseBaby
+// Importaciones optimizadas para performance - preload de imágenes críticas
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
 import logonursana from './assets/logo.png';
 import motherImg from './assets/mother2.jpg';
 import SplashScreen from './components/SplashScreen';
-import ReviewCarousel from './components/ReviewCarousel';
 import RoundedImage from './components/RoundedImage';
+import LazyImage from './components/LazyImage';
 import SEO from './components/SEO';
+import ErrorBoundary from './components/ErrorBoundary';
+import { preloadCriticalImages } from './utils/imagePerformance';
+
+// Lazy loading para componentes no críticos
+const ReviewCarousel = lazy(() => import('./components/ReviewCarousel'));
+const ServicesSection = lazy(() => import('./components/ServicesSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+
+// Datos estáticos optimizados para performance
+const reviews = [
+  {
+    name: "Laura Martínez",
+    rating: 4,
+    text: "La asesoría de lactancia de Nursana fue fundamental para mí. Me ayudaron a resolver todas mis dudas sobre la lactancia y me dieron consejos muy útiles para el cuidado de mi bebé. Lo recomiendo totalmente.",
+    date: "Mayo 2025"
+  },
+  {
+    name: "Carmen Sánchez",
+    rating: 5,
+    text: "El servicio de Salus nocturno me permitió descansar después de semanas sin dormir bien. La enfermera fue muy profesional y mi bebé estuvo perfectamente atendido.",
+    date: "Junio 2025"
+  },
+  {
+    name: "Marta Rodríguez",
+    rating: 5,
+    text: "El curso de primeros auxilios me ha dado mucha confianza. Ahora me siento preparada para actuar ante cualquier emergencia. Explicaciones claras y prácticas.",
+    date: "Abril 2025"
+  },
+  {
+    name: "Ana López",
+    rating: 5,
+    text: "La asesoría de lactancia fue justo lo que necesitaba. Mi bebé tenía problemas para agarrarse bien y con su ayuda conseguimos solucionarlo en una sola sesión.",
+    date: "Mayo 2025"
+  },
+  {
+    name: "Elena Gómez",
+    rating: 5,
+    text: "La puesta de pendientes a mi bebé fue rápida y sin complicaciones. Muy profesionales y cuidadosas con mi pequeña. La recomiendo sin dudarlo.",
+    date: "Junio 2025"
+  },
+  {
+    name: "Patricia Fernández",
+    rating: 4,
+    text: "El curso de primeros auxilios ha sido muy completo. Ahora me siento mucho más segura con mi bebé. La enfermera explica todo de forma clara y práctica.",
+    date: "Mayo 2025"
+  }
+];
+
+const services = [
+  {
+    title: "Asesoría de lactancia",
+    description: "Te acompañamos en el inicio y desarrollo de la lactancia, resolviendo dudas y ayudando a superar cualquier dificultad. Nuestro objetivo es que vivas la lactancia de forma tranquila, informada y segura.",
+    price: "120€",
+    includes: ["Valoración personalizada", "Técnicas de agarre", "Solución de problemas frecuentes", "Seguimiento"],
+    icon: <Heart className="w-8 h-8 text-primary" />
+  },
+  {
+    title: "Puesta de pendientes",
+    description: "Realizamos la colocación de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
+    price: "80€",
+    includes: ["Asesoramiento previo", "Elección de pendientes hipoalergénicos", "Cuidados posteriores"],
+    icon: <Baby className="w-8 h-8 text-primary" />
+  },
+  {
+    title: "Curso de primeros auxilios",
+    description: "Aprende desde casa a reaccionar ante emergencias como RCP, atragantamiento, convulsiones y cuando acudir a urgencias. Claro, práctico y pensado para familias. Impartido por una enfermera experta.",
+    price: "Privado por pareja: 80€ | Grupos: consultar",
+    includes: ["Desplazamiento", "Curso teórico-práctico de 2 horas de duración", "Manual teórico"],
+    icon: <Shield className="w-8 h-8 text-primary" />
+  },
+  {
+    title: "Servicio de Salus nocturno",
+    description: "¿Necesitas descansar? Nuestro servicio de salus nocturno te permite confiar el cuidado de tu bebé a una enfermera especializada durante la noche, para que puedas recuperar energías con total tranquilidad.",
+    price: "L-J 140€, V-D 160€",
+    includes: ["Desplazamiento y estancia en domicilio de 23:00 a 07:00 o de 00:00 a 08:00", "Para otras franjas, consultar"],
+    icon: <Clock className="w-8 h-8 text-primary" />
+  }
+];
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+
+  // Preload de imágenes críticas y manejo del splash screen
+  useEffect(() => {
+    // Preload de imágenes críticas para mejor performance
+    preloadCriticalImages().catch(console.error);
+    
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   // Posicionamiento dinámico del botón "Contacta ahora" en dispositivos móviles y tablets
   useEffect(() => {
@@ -85,76 +177,6 @@ function App() {
       };
     }
   }, [showSplash]);
-  
-  const reviews = [
-    {
-      name: "Laura Martínez",
-      rating: 4,
-      text: "La asesoría de lactancia de Nursana fue fundamental para mí. Me ayudaron a resolver todas mis dudas sobre la lactancia y me dieron consejos muy útiles para el cuidado de mi bebé. Lo recomiendo totalmente.",
-      date: "Mayo 2025"
-    },
-    {
-      name: "Carmen Sánchez",
-      rating: 5,
-      text: "El servicio de Salus nocturno me permitió descansar después de semanas sin dormir bien. La enfermera fue muy profesional y mi bebé estuvo perfectamente atendido.",
-      date: "Junio 2025"
-    },
-    {
-      name: "Marta Rodríguez",
-      rating: 5,
-      text: "El curso de primeros auxilios me ha dado mucha confianza. Ahora me siento preparada para actuar ante cualquier emergencia. Explicaciones claras y prácticas.",
-      date: "Abril 2025"
-    },
-    {
-      name: "Ana López",
-      rating: 5,
-      text: "La asesoría de lactancia fue justo lo que necesitaba. Mi bebé tenía problemas para agarrarse bien y con su ayuda conseguimos solucionarlo en una sola sesión.",
-      date: "Mayo 2025"
-    },
-    {
-      name: "Elena Gómez",
-      rating: 5,
-      text: "La puesta de pendientes a mi bebé fue rápida y sin complicaciones. Muy profesionales y cuidadosas con mi pequeña. La recomiendo sin dudarlo.",
-      date: "Junio 2025"
-    },
-    {
-      name: "Patricia Fernández",
-      rating: 4,
-      text: "El curso de primeros auxilios ha sido muy completo. Ahora me siento mucho más segura con mi bebé. La enfermera explica todo de forma clara y práctica.",
-      date: "Mayo 2025"
-    }
-  ];
-
-  const services = [
-    {
-      title: "Asesoría de lactancia",
-      description: "Te acompañamos en el inicio y desarrollo de la lactancia, resolviendo dudas y ayudando a superar cualquier dificultad. Nuestro objetivo es que vivas la lactancia de forma tranquila, informada y segura.",
-      price: "120€",
-      includes: ["Valoración personalizada", "Técnicas de agarre", "Solución de problemas frecuentes", "Seguimiento"],
-      icon: <Heart className="w-8 h-8 text-primary" />
-    },
-    {
-      title: "Puesta de pendientes",
-      description: "Realizamos la colocación de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
-      price: "80€",
-      includes: ["Asesoramiento previo", "Elección de pendientes hipoalergénicos", "Cuidados posteriores"],
-      icon: <Baby className="w-8 h-8 text-primary" />
-    },
-    {
-      title: "Curso de primeros auxilios",
-      description: "Aprende desde casa a reaccionar ante emergencias como RCP, atragantamiento, convulsiones y cuando acudir a urgencias. Claro, práctico y pensado para familias. Impartido por una enfermera experta.",
-      price: "Privado por pareja: 80€ | Grupos: consultar",
-      includes: ["Desplazamiento", "Curso teórico-práctico de 2 horas de duración", "Manual teórico"],
-      icon: <Shield className="w-8 h-8 text-primary" />
-    },
-    {
-      title: "Servicio de Salus nocturno",
-      description: "¿Necesitas descansar? Nuestro servicio de salus nocturno te permite confiar el cuidado de tu bebé a una enfermera especializada durante la noche, para que puedas recuperar energías con total tranquilidad.",
-      price: "L-J 140€, V-D 160€",
-      includes: ["Desplazamiento y estancia en domicilio de 23:00 a 07:00 o de 00:00 a 08:00", "Para otras franjas, consultar"],
-      icon: <Clock className="w-8 h-8 text-primary" />
-    }
-  ];
 
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/34681882717', '_blank');
@@ -242,10 +264,11 @@ function App() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
                 <div className="slide-in-left desktop-only">
-                  <img 
+                  <LazyImage 
                     src={bebeDurmiendo}
                     alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
                     className="w-full h-auto rounded-2xl shadow-xl"
+                    loading="lazy"
                   />
                 </div>
                 {/* Contenido de texto que aparecerá primero en móviles/tablets */}
@@ -275,10 +298,11 @@ function App() {
                   </div>
                   {/* Esta imagen solo aparecerá en móviles/tablets, debajo del texto */}
                   <div className="mobile-tablet-only mt-8 pt-4">
-                    <img 
+                    <LazyImage 
                       src={bebeDurmiendo}
                       alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
                       className="w-full h-auto rounded-2xl shadow-xl"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -287,143 +311,49 @@ function App() {
           </article>
 
           {/* Servicios Section */}
-          <section className="py-20 bg-background" role="region" aria-labelledby="services-heading">
-            <div className="container mx-auto px-4">
-              <div className="flex flex-row gap-8 items-start mb-16 justify-end">
-                <div className="sticky top-24 w-1/3" style={{minWidth: '260px'}}>
-                  <h2 id="services-heading" className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient text-left">
-                    Nuestros Servicios
-                  </h2>
-                  <p className="text-xl text-muted-foreground max-w-md text-left">
-                    Diseñados para acompañarte en esta etapa
-                  </p>
-                </div>
-                <div className="flex flex-col items-end gap-8 w-[60%] ml-auto">
-                  {services.map((service) => (
-                    <Card key={service.title} className="service-card bg-white border-0 shadow-lg w-full" style={{marginLeft:0}}>
-                      <CardHeader className="text-center pb-4">
-                        <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                          {service.icon}
-                        </div>
-                        <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                        <div className="text-2xl font-bold text-primary">{service.price}</div>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-base mb-4 leading-relaxed card-description">
-                          {service.description}
-                        </CardDescription>
-                        <div className="space-y-2">
-                          <p className="font-semibold text-sm text-primary">Incluye:</p>
-                          <ul className="space-y-1">
-                            {service.includes.map((item, idx) => (
-                              <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <Button 
-                          className="w-auto min-w-[300px] mt-6 bg-primary hover:bg-primary/90 mx-auto block"
-                          onClick={handleWhatsAppClick}
-                          style={{whiteSpace: 'nowrap'}}
-                        >
-                          Solicitar información
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+          <ErrorBoundary>
+            <Suspense fallback={
+              <div className="py-20 text-center">
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                <p className="mt-2 text-muted-foreground">Cargando servicios...</p>
               </div>
-            </div>
-          </section>
+            }>
+              <ServicesSection services={services} handleWhatsAppClick={handleWhatsAppClick} />
+            </Suspense>
+          </ErrorBoundary>
 
           {/* Reviews Section */}
           <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
-              <ReviewCarousel reviews={reviews} />
+              <ErrorBoundary>
+                <Suspense fallback={
+                  <div className="text-center py-8">
+                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                    <p className="mt-2 text-muted-foreground">Cargando opiniones...</p>
+                  </div>
+                }>
+                  <ReviewCarousel reviews={reviews} />
+                </Suspense>
+              </ErrorBoundary>
             </div>
           </section>
 
           {/* Contacto Section */}
-          <section className="py-20 bg-background" role="region" aria-labelledby="contact-heading">
-            <div className="container mx-auto px-4">
-              <div className="text-center mb-16">
-                <h2 id="contact-heading" className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient">
-                  Contacta con Nursana
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-2">
-                  Estamos aquí para resolver todas tus dudas y acompañarte en esta hermosa etapa
-                </p>
+          <ErrorBoundary>
+            <Suspense fallback={
+              <div className="py-20 text-center">
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                <p className="mt-2 text-muted-foreground">Cargando contacto...</p>
               </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                <Card className="text-center p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Teléfono</h3>
-                  <p className="text-muted-foreground mb-4">+34 681 882 717</p>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="border-primary text-primary hover:bg-primary hover:text-white"
-                    onClick={handleCallClick}
-                  >
-                    Llamar
-                  </Button>
-                </Card>
-                
-                <Card className="text-center p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Email</h3>
-                  <p className="text-muted-foreground mb-4 text-sm">hola@nursana.es</p>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="border-primary text-primary hover:bg-primary hover:text-white"
-                    onClick={handleEmailClick}
-                  >
-                    Escribir
-                  </Button>
-                </Card>
-                
-                <Card className="text-center p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    <MessageCircle className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">WhatsApp</h3>
-                  <p className="text-muted-foreground mb-4">Contacto directo</p>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="border-primary text-primary hover:bg-primary hover:text-white"
-                    onClick={handleWhatsAppClick}
-                  >
-                    Chatear
-                  </Button>
-                </Card>
-                
-                <Card className="text-center p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    <Instagram className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Instagram</h3>
-                  <p className="text-muted-foreground mb-4">@nursana.care</p>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="border-primary text-primary hover:bg-primary hover:text-white"
-                    onClick={handleInstagramClick}
-                  >
-                    Seguir
-                  </Button>
-                </Card>
-              </div>
-            </div>
-          </section>
+            }>
+              <ContactSection 
+                handleCallClick={handleCallClick}
+                handleEmailClick={handleEmailClick}
+                handleWhatsAppClick={handleWhatsAppClick}
+                handleInstagramClick={handleInstagramClick}
+              />
+            </Suspense>
+          </ErrorBoundary>
           </main>
 
           {/* Footer */}
