@@ -26,6 +26,7 @@ import motherImg from './assets/mother2.jpg';
 import SplashScreen from './components/SplashScreen';
 import ReviewCarousel from './components/ReviewCarousel';
 import RoundedImage from './components/RoundedImage';
+import SEO from './components/SEO';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -173,18 +174,19 @@ function App() {
 
   return (
     <>
+      <SEO />
       {showSplash && (
         <SplashScreen onFinish={() => setShowSplash(false)} />
       )}
       {!showSplash && (
         <div className="min-h-screen bg-background">
-          {/* Hero Section */}
-          <section className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
+          {/* Hero Header */}
+          <header className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
             <div className="absolute inset-0 nursana-gradient opacity-10"></div>
             
             {/* Logo - responsive positioning for all sizes */}
             <div className="logo-container">
-              <img src={logonursana} alt="Logo Nursana" className="splash-down" />
+              <img src={logonursana} alt="Nursana - Enfermera especializada en cuidado de bebés y madres en Madrid" className="splash-down" />
             </div>
             
             {/* Image - responsive adjustments for different devices */}
@@ -192,7 +194,7 @@ function App() {
               <div className="image-container full-right-image">
                 <RoundedImage 
                   src={motherImg} 
-                  alt="Madre Nursana" 
+                  alt="Madre con bebé recibiendo cuidados profesionales de enfermería especializada" 
                   className="splash-right-to-left drop-shadow-xl rounded-image" 
                 />
               </div>
@@ -200,10 +202,13 @@ function App() {
             
             {/* Content Container - Now with responsive adjustments */}
             <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-end h-full min-h-screen">
-              <div className="text-center fade-in w-full pb-16">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient" style={{wordBreak: 'break-word'}}>
-                  Descubre nuestros servicios profesionales para madres y recién nacidos
+              <div className="text-center fade-in w-full pb-2 md:pb-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
+                  Enfermera especializada en cuidado de bebés y asesoría de lactancia en Madrid
                 </h1>
+                <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
+                  Servicios profesionales de enfermería para bebés y madres: asesoría de lactancia, puesta de pendientes, primeros auxilios y cuidado nocturno (salus). Enfermera titulada con experiencia en cuidados del neonato y maternidad.
+                </p>
                 {/* Contenedor simplificado con botones directamente horizontales */}
                 <div className="flex justify-center mt-10" id="horizontal-buttons-container">
                   <Button 
@@ -227,17 +232,19 @@ function App() {
                 </div>
               </div>
             </div>
-          </section>
+          </header>
 
-          {/* Sobre Nursana Section */}
-          <section className="py-20 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Main content */}
+          <main>
+            {/* Sobre Nursana Article */}
+            <article className="py-20 bg-white">
+              <div className="container mx-auto px-4">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
                 <div className="slide-in-left desktop-only">
                   <img 
                     src={bebeDurmiendo}
-                    alt="Bebé durmiendo Nursana"
+                    alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
                     className="w-full h-auto rounded-2xl shadow-xl"
                   />
                 </div>
@@ -270,21 +277,21 @@ function App() {
                   <div className="mobile-tablet-only mt-8 pt-4">
                     <img 
                       src={bebeDurmiendo}
-                      alt="Bebé durmiendo Nursana"
+                      alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
                       className="w-full h-auto rounded-2xl shadow-xl"
                     />
                   </div>
                 </div>
               </div>
             </div>
-          </section>
+          </article>
 
           {/* Servicios Section */}
-          <section className="py-20 bg-background">
+          <section className="py-20 bg-background" role="region" aria-labelledby="services-heading">
             <div className="container mx-auto px-4">
               <div className="flex flex-row gap-8 items-start mb-16 justify-end">
                 <div className="sticky top-24 w-1/3" style={{minWidth: '260px'}}>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient text-left">
+                  <h2 id="services-heading" className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient text-left">
                     Nuestros Servicios
                   </h2>
                   <p className="text-xl text-muted-foreground max-w-md text-left">
@@ -339,10 +346,10 @@ function App() {
           </section>
 
           {/* Contacto Section */}
-          <section className="py-20 bg-background">
+          <section className="py-20 bg-background" role="region" aria-labelledby="contact-heading">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient">
+                <h2 id="contact-heading" className="text-3xl md:text-4xl font-bold mb-4 nursana-text-gradient">
                   Contacta con Nursana
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-2">
@@ -417,6 +424,7 @@ function App() {
               </div>
             </div>
           </section>
+          </main>
 
           {/* Footer */}
           <footer className="bg-primary text-white py-12">
