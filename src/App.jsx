@@ -135,7 +135,7 @@ function App() {
     {
       title: "Puesta de pendientes",
       description: "Realizamos la colocación de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
-      price: "70€",
+      price: "80€",
       includes: ["Asesoramiento previo", "Elección de pendientes hipoalergénicos", "Cuidados posteriores"],
       icon: <Baby className="w-8 h-8 text-primary" />
     },
@@ -148,9 +148,9 @@ function App() {
     },
     {
       title: "Servicio de Salus nocturno",
-      description: "¿Necesitas descansar? Nuestro servicio de salus nocturno te permite confiar el cuidado de tu bebé a una profesional durante la noche, para que puedas recuperar energías con total tranquilidad.",
+      description: "¿Necesitas descansar? Nuestro servicio de salus nocturno te permite confiar el cuidado de tu bebé a una enfermera especializada durante la noche, para que puedas recuperar energías con total tranquilidad.",
       price: "L-J 140€, V-D 160€",
-      includes: ["Desplazamiento y estancia en domicilio de 22:00 a 08:00", "Para otras franjas, consultar"],
+      includes: ["Desplazamiento y estancia en domicilio de 23:00 a 07:00 o de 00:00 a 08:00", "Para otras franjas, consultar"],
       icon: <Clock className="w-8 h-8 text-primary" />
     }
   ];
