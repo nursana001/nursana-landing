@@ -17,7 +17,7 @@ const ServicesSection = ({ services, handleWhatsAppClick }) => {
         
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <Card key={index} className="service-card group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+            <Card key={index} className="service-card group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-white/90 backdrop-blur-sm flex flex-col h-full">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-3 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{backgroundColor: '#e8f0ec'}}>
                   {service.icon}
@@ -29,11 +29,11 @@ const ServicesSection = ({ services, handleWhatsAppClick }) => {
                   {service.price}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="text-center">
+              <CardContent className="text-center flex flex-col flex-grow">
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <div className="mb-6">
+                <div className="mb-6 flex-grow">
                   <h4 className="font-semibold text-gray-800 mb-3">Incluye:</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
                     {service.includes.map((item, itemIndex) => (
@@ -44,18 +44,20 @@ const ServicesSection = ({ services, handleWhatsAppClick }) => {
                     ))}
                   </ul>
                 </div>
-                <Button 
-                  onClick={handleWhatsAppClick}
-                  className="service-button text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
-                  style={{
-                    background: 'linear-gradient(135deg, #99bcab 0%, #7a9d8a 100%)',
-                    '&:hover': {
-                      background: 'linear-gradient(135deg, #7a9d8a 0%, #99bcab 100%)'
-                    }
-                  }}
-                >
-                  Solicitar información
-                </Button>
+                <div className="mt-auto">
+                  <Button 
+                    onClick={handleWhatsAppClick}
+                    className="service-button text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                    style={{
+                      background: 'linear-gradient(135deg, #99bcab 0%, #7a9d8a 100%)',
+                      '&:hover': {
+                        background: 'linear-gradient(135deg, #7a9d8a 0%, #99bcab 100%)'
+                      }
+                    }}
+                  >
+                    Solicitar información
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}

@@ -18,6 +18,7 @@ import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móv
 import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel de reviews para evitar solapamiento en móviles
 import './small-computer-service-button-fix.css'; // Corrige el tamaño del botón "Solicitar información" en ordenadores pequeños
 import './button-text-overflow-fix.css'; // Solución adicional para problemas específicos de desbordamiento de texto en botones
+import './service-cards-alignment.css'; // Alineación correcta de botones en tarjetas de servicios
 import './horizontal-buttons-fix.css'; // Nueva solución para que los botones aparezcan uno al lado del otro
 // Importaciones optimizadas para performance - preload de imágenes críticas
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
@@ -226,7 +227,7 @@ function App() {
             <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-end h-full min-h-screen">
               <div className="text-center fade-in w-full pb-2 md:pb-4">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
-                  Enfermera especializada en cuidado de bebés y asesoría de lactancia en Madrid
+                  Enfermera neonatal y lactancia Madrid
                 </h1>
                 <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
                   Servicios profesionales de enfermería neonatal para bebés y madres en Madrid: asesoría personalizada de lactancia materna, puesta de pendientes para bebés, curso de primeros auxilios infantil y cuidado nocturno domiciliario (salus). Enfermera titulada con experiencia especializada en cuidados del recién nacido y apoyo en maternidad.

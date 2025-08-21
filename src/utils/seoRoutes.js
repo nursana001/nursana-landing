@@ -4,7 +4,7 @@ export const siteRoutes = [
     path: '/',
     priority: '1.0',
     changefreq: 'monthly',
-    title: 'Nursana | Enfermera especializada en cuidado de bebés y lactancia en Madrid',
+    title: 'Enfermera neonatal y lactancia Madrid',
     description: 'Servicios profesionales de enfermería neonatal para bebés y madres en Madrid'
   },
   {

@@ -151,7 +151,7 @@ const Home = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-center lg:text-left">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 nursana-text-gradient">
-                  Enfermera especializada en cuidado de bebés y asesoría de lactancia en Madrid
+                  Enfermera neonatal y lactancia Madrid
                 </h1>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                   Servicios profesionales de enfermería neonatal para bebés y madres en Madrid: asesoría personalizada de lactancia materna, puesta de pendientes para bebés, curso de primeros auxilios infantil y cuidado nocturno domiciliario (salus). Enfermera titulada con experiencia especializada en cuidados del recién nacido y apoyo en maternidad.
