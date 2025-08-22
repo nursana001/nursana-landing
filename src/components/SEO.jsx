@@ -5,7 +5,7 @@ const SEO = ({
   title = null, // Será calculado dinámicamente si no se proporciona
   description = null, // Será calculado dinámicamente si no se proporciona
   url = null, // Será calculada dinámicamente si no se proporciona
-  image = "https://www.nursana.es/favicon.png"
+  image = "https://www.nursana.es/src/assets/logo.png"
 }) => {
   useEffect(() => {
     // Obtener información de la ruta actual

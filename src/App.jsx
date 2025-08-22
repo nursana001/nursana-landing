@@ -86,7 +86,7 @@ const services = [
   },
   {
     title: "Puesta de pendientes",
-    description: "Realizamos la colocación de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
+    description: "Realizamos la colocación sanitaria de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
     price: "80€",
     includes: ["Asesoramiento previo", "Elección de pendientes hipoalergénicos", "Cuidados posteriores"],
     icon: <Baby className="w-8 h-8 text-primary" />
@@ -262,7 +262,7 @@ function App() {
             {/* Sobre Nursana Article */}
             <article className="py-20 bg-white">
               <div className="container mx-auto px-4">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 items-start">
                 {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
                 <div className="slide-in-left desktop-only">
                   <LazyImage 
