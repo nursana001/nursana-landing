@@ -22,6 +22,7 @@ import './service-cards-alignment.css'; // Alineación correcta de botones en ta
 import './horizontal-buttons-fix.css'; // Nueva solución para que los botones aparezcan uno al lado del otro
 // Importaciones optimizadas para performance - preload de imágenes críticas
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
+import madreCogiendo from './assets/madre-cogiendo-bebe.jpg';
 import logonursana from './assets/logo.png';
 import motherImg from './assets/mother2.jpg';
 import SplashScreen from './components/SplashScreen';
@@ -81,14 +82,14 @@ const services = [
     title: "Asesoría de lactancia",
     description: "Te acompañamos en el inicio y desarrollo de la lactancia, resolviendo dudas y ayudando a superar cualquier dificultad. Nuestro objetivo es que vivas la lactancia de forma tranquila, informada y segura.",
     price: "120€",
-    includes: ["Valoración personalizada", "Técnicas de agarre", "Solución de problemas frecuentes", "Seguimiento"],
+    includes: ["Valoración personalizada", "Técnicas de enganche", "Solución de problemas frecuentes", "Seguimiento"],
     icon: <Heart className="w-8 h-8 text-primary" />
   },
   {
     title: "Puesta de pendientes",
     description: "Realizamos la colocación sanitaria de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
     price: "80€",
-    includes: ["Asesoramiento previo", "Elección de pendientes hipoalergénicos", "Cuidados posteriores"],
+    includes: ["Asesoramiento previo", "Pendientes hipoalergénicos incluidos a elegir", "Cuidados posteriores"],
     icon: <Baby className="w-8 h-8 text-primary" />
   },
   {
@@ -266,8 +267,8 @@ function App() {
                 {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
                 <div className="slide-in-left desktop-only">
                   <LazyImage 
-                    src={bebeDurmiendo}
-                    alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
+                    src={madreCogiendo}
+                    alt="Madre cogiendo a su bebé con amor y cuidado profesional de enfermería especializada"
                     className="w-full h-auto rounded-2xl shadow-xl"
                     loading="lazy"
                   />
@@ -300,8 +301,8 @@ function App() {
                   {/* Esta imagen solo aparecerá en móviles/tablets, debajo del texto */}
                   <div className="mobile-tablet-only mt-8 pt-4">
                     <LazyImage 
-                      src={bebeDurmiendo}
-                      alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
+                      src={madreCogiendo}
+                      alt="Madre cogiendo a su bebé con amor y cuidado profesional de enfermería especializada"
                       className="w-full h-auto rounded-2xl shadow-xl"
                       loading="lazy"
                     />
