@@ -71,14 +71,16 @@ const SEO = ({
       "email": "hola@nursana.es",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Av. de Monforte de Lemos, 36",
         "addressLocality": "Madrid",
-        "addressRegion": "Madrid",
+        "addressRegion": "Madrid", 
+        "postalCode": "28029",
         "addressCountry": "ES"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "40.4168",
-        "longitude": "-3.7038"
+        "latitude": "40.4797381",
+        "longitude": "-3.7076384"
       },
       "openingHours": "Mo-Su 00:00-23:59",
       "priceRange": "€€",
