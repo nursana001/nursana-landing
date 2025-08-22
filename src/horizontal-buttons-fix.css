@@ -55,3 +55,45 @@
     display: flex !important;
   }
 }
+
+/* SOLUCIÓN CRÍTICA PARA LAPTOPS - MÁXIMA PRIORIDAD - DESPLAZAMIENTO CONTROLADO */
+@media screen and (min-width: 1024px) and (max-width: 1599px) {
+  
+  /* Aumentar ligeramente la altura de la sección hero */
+  body div.min-h-screen.bg-background header.hero-section {
+    min-height: 120vh !important;
+    height: auto !important;
+  }
+  
+  /* Mover el contenedor hacia abajo pero mantenerlo visible */
+  body div.min-h-screen.bg-background header.hero-section div.container {
+    transform: translateY(4rem) !important; /* Reducido de 8rem a 4rem */
+    justify-content: center !important; /* Centrar en lugar de flex-end */
+    align-items: center !important;
+    padding-top: 8rem !important; /* Reducido de 12rem a 8rem */
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Ajustar el texto para que sea visible */
+  body div.min-h-screen.bg-background header.hero-section div.container div.text-center {
+    margin-top: 1rem !important; /* Reducido de 2rem a 1rem */
+    padding-top: 1rem !important; /* Reducido de 2rem a 1rem */
+  }
+  
+  /* Asegurar que los botones sean visibles con mayor separación del subtítulo */
+  body div.min-h-screen.bg-background header.hero-section #horizontal-buttons-container {
+    margin-top: 3rem !important; /* Aumentado de 1rem a 3rem para mayor separación (~1cm adicional) */
+  }
+}
+
+/* APLICAR EL MISMO EFECTO HOVER DEL BOTÓN "RESERVA TU CITA" AL BOTÓN "CONTACTA AHORA" */
+.btn-contacta {
+  transition: all 0.3s ease;
+}
+
+.btn-contacta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(153, 188, 171, 0.3);
+}

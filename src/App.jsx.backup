@@ -18,11 +18,9 @@ import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móv
 import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel de reviews para evitar solapamiento en móviles
 import './small-computer-service-button-fix.css'; // Corrige el tamaño del botón "Solicitar información" en ordenadores pequeños
 import './button-text-overflow-fix.css'; // Solución adicional para problemas específicos de desbordamiento de texto en botones
-import './service-cards-alignment.css'; // Alineación correcta de botones en tarjetas de servicios
 import './horizontal-buttons-fix.css'; // Nueva solución para que los botones aparezcan uno al lado del otro
 // Importaciones optimizadas para performance - preload de imágenes críticas
 import bebeDurmiendo from './assets/bebe-durmiendo.jpeg';
-import madreCogiendo from './assets/madre-cogiendo-bebe.jpg';
 import logonursana from './assets/logo.png';
 import motherImg from './assets/mother2.jpg';
 import SplashScreen from './components/SplashScreen';
@@ -82,14 +80,14 @@ const services = [
     title: "Asesoría de lactancia",
     description: "Te acompañamos en el inicio y desarrollo de la lactancia, resolviendo dudas y ayudando a superar cualquier dificultad. Nuestro objetivo es que vivas la lactancia de forma tranquila, informada y segura.",
     price: "120€",
-    includes: ["Valoración personalizada", "Técnicas de enganche", "Solución de problemas frecuentes", "Seguimiento"],
+    includes: ["Valoración personalizada", "Técnicas de agarre", "Solución de problemas frecuentes", "Seguimiento"],
     icon: <Heart className="w-8 h-8 text-primary" />
   },
   {
     title: "Puesta de pendientes",
-    description: "Realizamos la colocación sanitaria de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
+    description: "Realizamos la colocación de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
     price: "80€",
-    includes: ["Asesoramiento previo", "Pendientes hipoalergénicos incluidos a elegir", "Cuidados posteriores"],
+    includes: ["Asesoramiento previo", "Elección de pendientes hipoalergénicos", "Cuidados posteriores"],
     icon: <Baby className="w-8 h-8 text-primary" />
   },
   {
@@ -228,7 +226,7 @@ function App() {
             <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-end h-full min-h-screen">
               <div className="text-center fade-in w-full pb-2 md:pb-4">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
-                  Enfermera neonatal y lactancia Madrid
+                  Enfermera especializada en cuidado de bebés y asesoría de lactancia en Madrid
                 </h1>
                 <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
                   Servicios profesionales de enfermería neonatal para bebés y madres en Madrid: asesoría personalizada de lactancia materna, puesta de pendientes para bebés, curso de primeros auxilios infantil y cuidado nocturno domiciliario (salus). Enfermera titulada con experiencia especializada en cuidados del recién nacido y apoyo en maternidad.
@@ -263,12 +261,12 @@ function App() {
             {/* Sobre Nursana Article */}
             <article className="py-20 bg-white">
               <div className="container mx-auto px-4">
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
                 <div className="slide-in-left desktop-only">
                   <LazyImage 
-                    src={madreCogiendo}
-                    alt="Madre cogiendo a su bebé con amor y cuidado profesional de enfermería especializada"
+                    src={bebeDurmiendo}
+                    alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
                     className="w-full h-auto rounded-2xl shadow-xl"
                     loading="lazy"
                   />
@@ -301,8 +299,8 @@ function App() {
                   {/* Esta imagen solo aparecerá en móviles/tablets, debajo del texto */}
                   <div className="mobile-tablet-only mt-8 pt-4">
                     <LazyImage 
-                      src={madreCogiendo}
-                      alt="Madre cogiendo a su bebé con amor y cuidado profesional de enfermería especializada"
+                      src={bebeDurmiendo}
+                      alt="Bebé recién nacido durmiendo tranquilo con cuidados profesionales de enfermería especializada"
                       className="w-full h-auto rounded-2xl shadow-xl"
                       loading="lazy"
                     />

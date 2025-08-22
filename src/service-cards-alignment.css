@@ -1,0 +1,80 @@
+/**
+ * Alineación de botones en tarjetas de servicios
+ * Asegura que todos los botones "Solicitar información" estén a la misma distancia del borde inferior
+ */
+
+/* Asegurar que todas las tarjetas de servicios tengan la misma altura */
+.services-section .grid {
+  align-items: stretch;
+}
+
+/* Configuración de flexbox para las tarjetas */
+.service-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* El header mantiene su tamaño natural */
+.service-card > div:first-child {
+  flex-shrink: 0;
+}
+
+/* El content ocupa el espacio restante y se configura como flex column */
+.service-card > div:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  justify-content: space-between !important;
+}
+
+/* Contenido que debe expandirse (descripción + lista incluye) */
+.service-card .text-gray-600.mb-6,
+.service-card .mb-6:not(.mt-auto) {
+  flex-grow: 0;
+}
+
+/* El div que contiene la lista "Incluye" debe crecer para empujar el botón hacia abajo */
+.service-card .mb-6:has(h4) {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+/* El contenedor del botón siempre va al final */
+.service-card button,
+.service-card .mt-auto {
+  margin-top: auto !important;
+  flex-shrink: 0 !important;
+}
+
+/* Selector alternativo para el botón sin mt-auto */
+.service-card > div:last-child > button:last-child {
+  margin-top: auto !important;
+}
+
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+  .service-card {
+    min-height: auto !important;
+  }
+  
+  .services-section .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .service-card {
+    min-height: 500px;
+  }
+}
+
+/* Ajustes para desktop */
+@media (min-width: 1024px) {
+  .service-card {
+    min-height: 550px;
+  }
+}

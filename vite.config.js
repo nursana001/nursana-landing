@@ -10,6 +10,12 @@ export default defineConfig({
   build: {
     outDir: 'docs'
   },
+  server: {
+    historyApiFallback: true
+  },
+  preview: {
+    historyApiFallback: true
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
