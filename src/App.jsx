@@ -224,14 +224,14 @@ function App() {
               </div>
             )}
             
-            {/* Content Container - Now with responsive adjustments */}
-            <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-end h-full min-h-screen">
-              <div className="text-center fade-in w-full pb-2 md:pb-4">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
-                  Enfermera neonatal y lactancia Madrid
+            {/* Content Container - Now with responsive adjustments - moved even higher */}
+            <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-8 h-full min-h-screen">
+              <div className="text-center fade-in w-full pb-16 md:pb-20">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
+                  Servicios de enfermería neonatal y lactancia en Madrid
                 </h1>
                 <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
-                  Servicios profesionales de enfermería neonatal para bebés y madres en Madrid: asesoría personalizada de lactancia materna, puesta de pendientes para bebés, curso de primeros auxilios infantil y cuidado nocturno domiciliario (salus). Enfermera titulada con experiencia especializada en cuidados del recién nacido y apoyo en maternidad.
+                  Apoyo profesional en los primeros días de tu bebé: lactancia, descanso y bienestar
                 </p>
                 {/* Contenedor simplificado con botones directamente horizontales */}
                 <div className="flex justify-center mt-10" id="horizontal-buttons-container">

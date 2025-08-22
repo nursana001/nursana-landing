@@ -56,7 +56,7 @@
   }
 }
 
-/* SOLUCIÓN CRÍTICA PARA LAPTOPS - MÁXIMA PRIORIDAD - DESPLAZAMIENTO CONTROLADO */
+/* Solución para posicionamiento correcto en PCs/Laptops - evitar solapamiento */
 @media screen and (min-width: 1024px) and (max-width: 1599px) {
   
   /* Aumentar ligeramente la altura de la sección hero */
@@ -65,12 +65,12 @@
     height: auto !important;
   }
   
-  /* Mover el contenedor hacia abajo pero mantenerlo visible */
+  /* Mover el contenedor hacia abajo pero evitando solapamiento con logo e imagen */
   body div.min-h-screen.bg-background header.hero-section div.container {
-    transform: translateY(4rem) !important; /* Reducido de 8rem a 4rem */
-    justify-content: center !important; /* Centrar en lugar de flex-end */
+    transform: translateY(1rem) !important; /* Ligeramente hacia arriba pero sin solaparse */
+    justify-content: center !important; /* Volver a centrar para evitar solapamiento */
     align-items: center !important;
-    padding-top: 8rem !important; /* Reducido de 12rem a 8rem */
+    padding-top: 4rem !important; /* Equilibrio entre altura y visibilidad */
     position: relative !important;
     top: 0 !important;
     margin-top: 0 !important;
@@ -78,22 +78,12 @@
   
   /* Ajustar el texto para que sea visible */
   body div.min-h-screen.bg-background header.hero-section div.container div.text-center {
-    margin-top: 1rem !important; /* Reducido de 2rem a 1rem */
-    padding-top: 1rem !important; /* Reducido de 2rem a 1rem */
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
   }
   
   /* Asegurar que los botones sean visibles con mayor separación del subtítulo */
   body div.min-h-screen.bg-background header.hero-section #horizontal-buttons-container {
-    margin-top: 3rem !important; /* Aumentado de 1rem a 3rem para mayor separación (~1cm adicional) */
+    margin-top: 3rem !important;
   }
-}
-
-/* APLICAR EL MISMO EFECTO HOVER DEL BOTÓN "RESERVA TU CITA" AL BOTÓN "CONTACTA AHORA" */
-.btn-contacta {
-  transition: all 0.3s ease;
-}
-
-.btn-contacta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(153, 188, 171, 0.3);
 }
