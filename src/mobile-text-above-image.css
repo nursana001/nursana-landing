@@ -11,13 +11,15 @@
     overflow: visible !important;
   }
   
-  /* Logo posición fija arriba */
+  /* Logo posición fija arriba - DESHABILITADO para permitir posicionamiento en esquina inferior */
+  /*
   .logo-container {
     position: relative;
     z-index: 20;
     margin-bottom: 30px;
     padding-top: 15px;
   }
+  */
   
   /* Contenido central: primero texto, luego imagen */
   .hero-section .container {
@@ -44,13 +46,15 @@
     margin: 0 0 20px 0 !important;
     max-width: 100%;
     padding-top: 20px; /* Espacio adicional arriba del título */
+    text-align: center !important;
+    width: 100% !important;
   }
   
   /* Contenedor de la imagen debajo del texto */
   .hero-section .image-container {
     order: 2;
     width: 100%;
-    margin: 30px 0 0 0 !important; /* Aumentado el margen superior */
+    margin: 0 !important; /* Sin margen para que llegue hasta arriba */
     position: relative;
   }
   

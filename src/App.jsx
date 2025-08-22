@@ -127,12 +127,17 @@ function App() {
 
   // Posicionamiento dinámico del botón "Contacta ahora" en dispositivos móviles y tablets
   useEffect(() => {
-    // Solo ejecutar en móviles y tablets (ancho máximo de 768px)
+    // Solo ejecutar en móviles y tablets (ancho máximo de 768px) Y cuando el logo esté arriba
+    // No ejecutar cuando el logo esté en la esquina inferior izquierda
     function isMobileOrTablet() {
       return window.innerWidth <= 768;
     }
 
     function positionContactButton() {
+      // NO ejecutar la función de alineación en móviles y tablets
+      // porque queremos el logo abajo-izquierda y el botón arriba-derecha independientes
+      return;
+
       if (!isMobileOrTablet()) return;
 
       // Obtener el logo y el botón de contacto
@@ -176,6 +181,41 @@ function App() {
         clearTimeout(timer);
         window.removeEventListener('scroll', positionContactButton);
         window.removeEventListener('resize', positionContactButton);
+      };
+    }
+  }, [showSplash]);
+
+  // Controlar visibilidad del botón de contacto en móviles y tablets
+  useEffect(() => {
+    function handleContactButtonVisibility() {
+      // Solo en móviles y tablets
+      if (window.innerWidth > 1023) return;
+
+      const contactButton = document.querySelector('.hero-section .btn-contacta');
+      
+      if (!contactButton) return;
+
+      // Usar scroll position simple - ocultar después de hacer scroll 200px
+      const scrollY = window.scrollY;
+      
+      if (scrollY > 200) {
+        contactButton.style.display = 'none';
+      } else {
+        contactButton.style.display = 'flex';
+      }
+    }
+
+    if (!showSplash) {
+      // Ejecutar inicialmente
+      handleContactButtonVisibility();
+      
+      // Ejecutar en scroll
+      window.addEventListener('scroll', handleContactButtonVisibility);
+      window.addEventListener('resize', handleContactButtonVisibility);
+      
+      return () => {
+        window.removeEventListener('scroll', handleContactButtonVisibility);
+        window.removeEventListener('resize', handleContactButtonVisibility);
       };
     }
   }, [showSplash]);
@@ -224,8 +264,8 @@ function App() {
               </div>
             )}
             
-            {/* Content Container - Now with responsive adjustments - moved even higher */}
-            <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-8 h-full min-h-screen">
+            {/* Content Container - Now with responsive adjustments - moved down 1cm */}
+            <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-18 h-full min-h-screen">
               <div className="text-center fade-in w-full pb-16 md:pb-20">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
                   Servicios de enfermería neonatal y lactancia en Madrid

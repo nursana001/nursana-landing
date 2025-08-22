@@ -70,7 +70,7 @@
     transform: translateY(1rem) !important; /* Ligeramente hacia arriba pero sin solaparse */
     justify-content: center !important; /* Volver a centrar para evitar solapamiento */
     align-items: center !important;
-    padding-top: 4rem !important; /* Equilibrio entre altura y visibilidad */
+    padding-top: 6.5rem !important; /* Aumentado 2.5rem (1cm aprox) desde 4rem */
     position: relative !important;
     top: 0 !important;
     margin-top: 0 !important;
@@ -85,5 +85,160 @@
   /* Asegurar que los botones sean visibles con mayor separación del subtítulo */
   body div.min-h-screen.bg-background header.hero-section #horizontal-buttons-container {
     margin-top: 3rem !important;
+  }
+}
+
+/**
+ * SOLUCIÓN DEFINITIVA PARA LA IMAGEN MOTHER2.JPG EN MÓVILES Y TABLETS
+ * Esta regla se aplica al final para sobreescribir todos los estilos anteriores
+ */
+@media (max-width: 1023px) {
+  /* Forzar que la imagen ocupe toda la mitad superior sin espacios */
+  .image-container.full-right-image {
+    position: relative !important;
+    width: 100vw !important;
+    height: 50vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    order: 1 !important;
+    z-index: 5 !important;
+  }
+
+  /* Contenedor interno sin bordes ni espacios */
+  .rounded-image-container {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    position: relative !important;
+  }
+
+  /* La imagen en sí debe cubrir todo el contenedor */
+  .splash-right-to-left.rounded-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  /* Asegurar que el hero section permita el layout correcto */
+  section.hero-section,
+  header.hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    min-height: 100vh !important;
+  }
+}
+
+/**
+ * REGLA FINAL Y DEFINITIVA PARA EL LOGO EN MÓVILES Y TABLETS
+ * Esta regla se aplica al final para asegurar que no sea sobreescrita
+ */
+@media (max-width: 1023px) {
+  /* Logo en esquina inferior izquierda - REGLA DEFINITIVA */
+  body .logo-container {
+    position: absolute !important;
+    bottom: 1rem !important;
+    left: 1rem !important;
+    top: auto !important;
+    right: auto !important;
+    width: auto !important;
+    z-index: 100 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  /* Tamaño del logo - REGLA DEFINITIVA */
+  body .logo-container img {
+    height: 5rem !important; /* Aumentado significativamente */
+    width: auto !important;
+    max-width: 250px !important; /* Límite muy alto */
+    min-height: 5rem !important; /* Forzar altura mínima */
+  }
+}
+
+/* Tablets específicos */
+@media (min-width: 577px) and (max-width: 1023px) {
+  body .logo-container img {
+    height: 6rem !important; /* Aún más grande para tablets */
+    max-width: 300px !important;
+    min-height: 6rem !important;
+  }
+}
+
+/* Móviles específicos */
+@media (max-width: 576px) {
+  body .logo-container img {
+    height: 4rem !important; /* Apropiado para móviles */
+    max-width: 200px !important;
+    min-height: 4rem !important;
+  }
+}
+
+/* FIX CRÍTICO: Centrado forzado del título en tablets - ÚLTIMA REGLA PARA MÁXIMA PRIORIDAD */
+@media (min-width: 577px) and (max-width: 1023px) {
+  .hero-section h1.text-2xl.sm\\:text-3xl.md\\:text-4xl.lg\\:text-5xl.font-bold.leading-tight.w-full.max-w-none.mx-0.px-0.nursana-text-gradient.mb-6 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    font-size: 3rem !important; /* Aumentado de 2.5rem a 3rem para tablets */
+    line-height: 1.2 !important;
+    display: block !important;
+  }
+  
+  /* Aumentar también el tamaño del subtítulo para tablets */
+  .hero-section .text-muted-foreground {
+    font-size: 1.5rem !important; /* Aumentado para tablets */
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* También asegurar que el contenedor padre esté centrado */
+  .hero-section .text-center.fade-in {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 }

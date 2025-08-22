@@ -12,16 +12,16 @@
   .image-container.full-right-image {
     /* Cambiar a posición relativa para evitar problemas de layout */
     position: relative !important;
-    width: 92% !important; /* Mismo ancho que la imagen bebeDurmiendo (referencia de App.jsx) */
-    max-width: 92% !important;
-    height: auto !important; /* Altura automática basada en contenido */
-    min-height: 30vh !important; /* Altura mínima para asegurar visibilidad */
-    margin: 0 auto !important; /* Centrado horizontal con margen automático */
-    margin-top: 6rem !important; /* Espacio para el logo arriba */
+    width: 100vw !important; /* Ancho completo de la pantalla sin espacios laterales */
+    max-width: 100vw !important;
+    height: 50vh !important; /* Altura fija para ocupar la mitad superior */
+    min-height: 50vh !important; /* Altura mínima igual a la fija */
+    margin: 0 !important; /* Sin márgenes para eliminar espacios */
+    margin-top: 0 !important; /* Sin espacio arriba */
     margin-bottom: 1rem !important; /* Espacio para contenido abajo */
     /* Eliminar transformaciones que puedan causar problemas */
-    transform: none !important;
-    left: auto !important;
+    transform: translateX(-50%) !important; /* Centrar horizontalmente */
+    left: 50% !important;
     right: auto !important;
     top: auto !important;
     bottom: auto !important;
@@ -32,32 +32,32 @@
   
   /* Contenedor interno de la imagen */
   .rounded-image-container {
-    /* Aplicar los mismos bordes redondeados que bebeDurmiendo */
-    border-radius: 1rem !important;
-    -webkit-border-radius: 1rem !important;
-    -moz-border-radius: 1rem !important;
+    /* Sin bordes redondeados para que llegue hasta los bordes */
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
     overflow: hidden !important;
     width: 100% !important;
     height: 100% !important;
     position: relative !important;
     display: block !important;
-    /* Añadir sombra como bebeDurmiendo */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    /* Sin sombra para que no haya separación visual */
+    box-shadow: none !important;
   }
   
   /* La imagen en sí */
   .splash-right-to-left.rounded-image {
     width: 100% !important; /* Ancho completo del contenedor */
-    height: 30vh !important; /* Altura fija para consistencia */
+    height: 100% !important; /* Altura completa del contenedor (50vh definido arriba) */
     object-fit: cover !important; /* Mantener proporción de la imagen */
-    /* Aplicar bordes redondeados consistentes */
-    border-radius: 1rem !important;
-    -webkit-border-radius: 1rem !important;
-    -moz-border-radius: 1rem !important;
+    /* Sin bordes redondeados para que llegue hasta los bordes */
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
     display: block !important;
-    margin: 0 auto !important; /* Centrar horizontalmente */
+    margin: 0 !important; /* Sin márgenes */
     /* Centrar la imagen para evitar recorte por la izquierda */
-    object-position: center 40% !important; /* Centrado con ligero enfoque en la parte superior */
+    object-position: center center !important; /* Centrado completo */
     /* Quitar posicionamiento absoluto que causa problemas */
     position: relative !important;
     top: auto !important;

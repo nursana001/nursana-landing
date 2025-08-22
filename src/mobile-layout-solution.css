@@ -15,11 +15,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start !important;
-    padding-top: 0 !important; /* Eliminado padding para subir todo más arriba */
+    padding: 0 !important; /* Sin padding lateral para que la imagen ocupe todo el ancho */
+    padding-top: 2.5rem !important; /* Solo padding superior para el logo */
     overflow-x: hidden;
     position: relative !important;
-    margin-top: 0 !important;
-    padding-top: 2.5rem !important; /* Añadido padding para dejar espacio al logo absoluto */
+    margin: 0 !important; /* Sin márgenes laterales */
     min-height: 100vh !important; /* Asegurar altura mínima en móviles pequeños */
   }
 
@@ -39,22 +39,37 @@
   }
 
   .logo-container img {
-    max-width: 160px !important; /* Reducido más para que no ocupe tanto espacio */
+    max-width: 220px !important; /* Aumentado para permitir logos más grandes */
     height: auto !important;
   }
 
-  /* Imagen de la madre a ancho completo - ajustada para evitar solapamiento con logo */
+  /* Imagen en el medio - movida desde abajo */
   .image-container.full-right-image {
     position: relative !important;
-    width: 100vw !important; /* Asegurar que cubre todo el ancho de la ventana */
-    height: 33vh !important; /* Reducido para evitar solapamiento (25% menos que original) */
+    width: 100vw !important;
+    height: 50vh !important; /* Aumentado de 33vh a 50vh para ocupar más espacio */
     right: auto !important;
     top: auto !important;
-    margin-bottom: 1rem !important; /* Reducido margen inferior */
-    margin-top: 4rem !important; /* Aumentado espacio desde arriba para evitar solapar con logo */
+    margin: 0 !important; /* Eliminados todos los márgenes */
+    margin-top: 0 !important; /* Eliminado margen superior para que llegue hasta arriba */
+    padding: 0 !important; /* Sin padding */
     overflow: hidden !important;
-    left: 50% !important; /* Centrar horizontalmente */
-    transform: translateX(-50%) !important; /* Compensar el centrado */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border: none !important; /* Sin bordes */
+    border-radius: 0 !important; /* Sin bordes redondeados */
+    order: 1 !important; /* Primero después del logo */
+  }
+
+  /* Texto y botones abajo - movido desde arriba */
+  .hero-section .container {
+    position: relative !important;
+    min-height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 1rem !important;
+    justify-content: flex-start !important;
+    margin-top: 1rem !important; /* Reducido ya que va después de la imagen */
+    order: 2 !important; /* Segundo, después de la imagen */
   }
 
   .rounded-image-container {
@@ -63,6 +78,9 @@
     border-radius: 0 !important; /* Eliminado el redondeado */
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
+    border: none !important; /* Sin bordes */
+    margin: 0 !important; /* Sin márgenes */
+    padding: 0 !important; /* Sin padding */
     overflow: hidden !important;
   }
 
@@ -70,10 +88,24 @@
     border-radius: 0 !important; /* Eliminado el redondeado */
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
-    object-position: center 30% !important;
+    border: none !important; /* Sin bordes */
+    margin: 0 !important; /* Sin márgenes */
+    padding: 0 !important; /* Sin padding */
+    width: 100% !important; /* Ancho completo */
+    height: 100% !important; /* Altura completa del contenedor */
+    object-position: center center !important; /* Centrar la imagen para eliminar espacios */
     animation: fadeIn 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
-    width: 100% !important;
     object-fit: cover !important;
+  }
+
+  /* Asegurar que todas las imágenes en hero-section ocupen todo el ancho sin bordes */
+  .hero-section img {
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
   }
 
   /* Asegurar que el logo esté perfectamente centrado */
@@ -100,7 +132,8 @@
     padding-top: 0 !important;
     padding-bottom: 1rem !important; /* Reducido para mejor espacio */
     justify-content: flex-start !important;
-    margin-top: 2rem !important; /* Añadido margen positivo para separar de la imagen */
+    margin-top: 1rem !important; /* Reducido ya que va después de la imagen */
+    order: 2 !important; /* Segundo, después de la imagen */
   }
 
   .hero-section .text-center {
@@ -154,12 +187,14 @@
 
   .image-container.full-right-image {
     height: 30vh !important; /* 33% más pequeña que la original (45vh) */
-    margin-top: 4rem !important; /* Espacio suficiente para evitar solapamiento */
+    margin-top: 4rem !important; /* Espacio desde arriba después del logo */
+    order: 1 !important; /* Primero después del logo */
   }
   
   .hero-section .container {
     padding-top: 0 !important;
-    margin-top: 0 !important; 
+    margin-top: 1rem !important; /* Reducido ya que va después de la imagen */
+    order: 2 !important; /* Segundo, después de la imagen */
   }
 }
 
@@ -174,7 +209,13 @@
   
   .image-container.full-right-image {
     height: 33vh !important; /* 25% más pequeña que la original (45vh) */
-    margin-top: 4.5rem !important; /* Espacio para el logo */
+    margin-top: 4rem !important; /* Espacio desde arriba después del logo */
+    order: 1 !important; /* Primero después del logo */
+  }
+  
+  .hero-section .container {
+    margin-top: 1rem !important; /* Reducido ya que va después de la imagen */
+    order: 2 !important; /* Segundo, después de la imagen */
   }
   
   /* Ajuste específico para botones en móvil L */
@@ -198,6 +239,11 @@
   
   .image-container.full-right-image {
     height: 36vh !important; /* 20% más pequeña que la original (45vh) */
+    order: 1 !important; /* Primero después del logo */
+  }
+  
+  .hero-section .container {
+    order: 2 !important; /* Segundo, después de la imagen */
   }
   
   .hero-section h1 {
@@ -210,7 +256,8 @@
 
 @media (min-width: 577px) and (max-width: 768px) {
   .logo-container img {
-    max-width: 140px !important;
+    max-width: 200px !important; /* Aumentado para permitir logos más grandes */
+    height: 4.5rem !important; /* Tamaño específico más grande para tablets */
   }
   
   .logo-container {
@@ -219,6 +266,11 @@
   
   .image-container.full-right-image {
     height: 36vh !important; /* 20% más pequeña que la original (45vh) */
+    order: 1 !important; /* Primero después del logo */
+  }
+  
+  .hero-section .container {
+    order: 2 !important; /* Segundo, después de la imagen */
   }
   
   .hero-section h1 {
@@ -240,6 +292,11 @@
   
   .image-container.full-right-image {
     height: 36vh !important; /* 20% más pequeña que la original (45vh) */
+    order: 1 !important; /* Primero después del logo */
+  }
+  
+  .hero-section .container {
+    order: 2 !important; /* Segundo, después de la imagen */
   }
   
   .hero-section h1 {
