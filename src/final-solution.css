@@ -351,3 +351,154 @@
     animation: splashRightToLeft-scale-1 1.2s cubic-bezier(0.4,0,0.2,1) forwards !important;
   }
 }
+
+/* OVERRIDE: Eliminar bordes redondeados y asegurar ancho completo en móviles y tablets */
+@media (max-width: 1023px) {
+  /* Asegurar que body y html no tengan márgenes laterales */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  /* Asegurar que el contenedor principal ocupe todo el ancho */
+  .min-h-screen.bg-background {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+  }
+  
+  .image-container.full-right-image {
+    width: 100vw !important;
+    height: 33vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1 !important;
+    transform: none !important;
+    order: unset !important;
+  }
+  
+  /* Ajustar el contenido para que aparezca después de la imagen fija */
+  .hero-section .container {
+    margin-top: calc(33vh + 1rem) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    order: unset !important;
+  }
+  
+  /* Ajustar el logo para que aparezca sobre la imagen */
+  .logo-container {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .rounded-image-container {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+  
+  .splash-right-to-left.rounded-image {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+  }
+  
+  /* Asegurar que el hero-section no limite el ancho */
+  section.hero-section, 
+  header.hero-section {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    position: relative !important;
+    min-height: 100vh !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Override para contenedores que puedan limitar el ancho - pero manteniendo padding para texto */
+  .hero-section .container {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: calc(33vh + 1rem) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Override para cualquier imagen en hero-section */
+  .hero-section img,
+  .hero-section .rounded-image,
+  .hero-section .splash-right-to-left,
+  .hero-section .rounded-image-border,
+  header.hero-section img,
+  header.hero-section .rounded-image,
+  header.hero-section .splash-right-to-left,
+  header.hero-section .rounded-image-border {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border: none !important;
+    max-width: none !important;
+  }
+  
+  /* Máxima especificidad para contenedores de imagen */
+  header.hero-section .image-container.full-right-image .rounded-image-container,
+  .hero-section .image-container.full-right-image .rounded-image-container {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* Máxima especificidad para la imagen específica */
+  header.hero-section .image-container.full-right-image .splash-right-to-left.rounded-image,
+  .hero-section .image-container.full-right-image .splash-right-to-left.rounded-image {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+  }
+}
