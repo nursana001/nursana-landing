@@ -1,0 +1,21 @@
+/*
+  This CSS class ensures that the bullet (dot) in the service list is always aligned with the first line of text, even if the text wraps to multiple lines. It uses flexbox and aligns the dot to the start of the first line.
+*/
+
+
+.service-bullet-align {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.service-bullet-align .service-bullet-dot {
+  margin-top: 0.4em; /* Adjust as needed for vertical alignment */
+  flex-shrink: 0;
+}
+
+.service-bullet-align .service-bullet-text {
+  display: block;
+  text-align: left;
+  width: 100%;
+}

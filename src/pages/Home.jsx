@@ -297,7 +297,7 @@ const Home = () => {
               <h3 className="font-semibold mb-4">Servicios</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>Asesoría de lactancia</li>
-                <li>Puesta de pendientes</li>
+                <li>Pendientes hipoalergénicos a elegir</li>
                 <li>Curso de primeros auxilios</li>
                 <li>Cuidado nocturno (Salus)</li>
               </ul>
