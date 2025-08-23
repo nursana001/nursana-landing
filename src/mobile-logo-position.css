@@ -10,7 +10,7 @@
   /* Logo en la esquina inferior izquierda para móviles y tablets, pero más arriba para que sea visible */
   .logo-container {
     position: absolute !important;
-    bottom: 3.5rem !important; /* Más arriba para que no quede oculto */
+    bottom: 3.5rem !important;
     left: 1rem !important;
     top: auto !important;
     right: auto !important;
@@ -28,14 +28,19 @@
   }
 }
 
-/* Ajustes para tablets */
 @media (max-width: 768px) {
   .logo-container {
     position: absolute !important;
-    bottom: 6rem !important; /* Mucho más arriba en tablets */
+    bottom: 8rem !important;
     left: 1rem !important;
     top: auto !important;
     right: auto !important;
+    width: auto !important;
+    z-index: 200 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    transform: none !important;
   }
   .logo-container img {
     height: 4rem !important;
@@ -48,7 +53,7 @@
 @media (max-width: 640px) {
   .logo-container {
     position: absolute !important;
-    bottom: 3.5rem !important; /* Más arriba para móviles */
+    bottom: 14rem !important; /* Aún más arriba para móviles tipo iPhone */
     left: 1rem !important;
     top: auto !important;
     right: auto !important;
@@ -63,7 +68,7 @@
 @media (max-width: 375px) {
   .logo-container {
     position: absolute !important;
-    bottom: 2.5rem !important; /* Más arriba para móviles pequeños */
+    bottom: 12rem !important; /* Aún más arriba para móviles pequeños tipo iPhone */
     left: 0.75rem !important;
     top: auto !important;
     right: auto !important;

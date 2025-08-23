@@ -126,7 +126,6 @@
   /* Logo centrado arriba - posicionado más arriba y con mayor z-index */
   .logo-container {
     position: absolute !important;
-    top: 0.38cm !important; /* 1cm desde arriba */
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
@@ -135,7 +134,7 @@
     align-items: center !important;
     padding: 0 !important;
     margin: 0 !important;
-    z-index: 100 !important; /* Aumentado el z-index para asegurar que quede por encima de todo */
+    z-index: 100 !important;
   }
 
   .logo-container img {
@@ -304,7 +303,7 @@
   }
   
   .logo-container {
-    top: 0.2cm !important; /* Subido más para móviles pequeños */
+    /* top eliminado para permitir control por bottom en mobile-logo-position.css */
   }
 
   .hero-section h1 {
@@ -330,7 +329,7 @@
   }
   
   .logo-container {
-    top: 0.35cm !important; /* Ajustado para móviles M */
+    /* top eliminado para permitir control por bottom en mobile-logo-position.css */
   }
   
   .image-container.full-right-image {
