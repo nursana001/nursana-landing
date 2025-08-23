@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { getCurrentCanonicalUrl, getCurrentRouteInfo } from '../utils/canonicalUrls';
 
 const SEO = ({ 
-  title = null, // Será calculado dinámicamente si no se proporciona
+  title = "Servicios de enfermería neonatal y lactancia en Madrid", // Será calculado dinámicamente si no se proporciona
   description = "Cuidados profesionales de enfermería para familias en Madrid: pendientes para bebés, lactancia, primeros auxilios y salus. Atención cercana y especializada", // Versión optimizada para redes sociales
   url = null, // Será calculada dinámicamente si no se proporciona
   image = "https://www.nursana.es/logonursana-og.png"
