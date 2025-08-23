@@ -211,9 +211,11 @@
 /* MÓVILES MUY PEQUEÑOS (hasta 320px) - scale(0.3) */
 @media (max-width: 320px) {
   .image-container.full-right-image {
-    width: 40% !important;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     height: 40vh !important;
-    min-width: 40% !important;
+    min-width: 0 !important;
     min-height: 40vh !important;
   }
   
@@ -227,9 +229,11 @@
 /* MÓVILES PEQUEÑOS (321px - 375px) - scale(0.325) */
 @media (min-width: 321px) and (max-width: 375px) {
   .image-container.full-right-image {
-    width: 40% !important;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     height: 40vh !important;
-    min-width: 40% !important;
+    min-width: 0 !important;
     min-height: 40vh !important;
   }
   
@@ -243,9 +247,11 @@
 /* MÓVILES MEDIANOS (376px - 425px) - scale(0.35) */
 @media (min-width: 376px) and (max-width: 425px) {
   .image-container.full-right-image {
-    width: 40% !important;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     height: 40vh !important;
-    min-width: 40% !important;
+    min-width: 0 !important;
     min-height: 40vh !important;
   }
   
@@ -259,9 +265,11 @@
 /* MÓVILES GRANDES (426px - 576px) - scale(0.375) */
 @media (min-width: 426px) and (max-width: 576px) {
   .image-container.full-right-image {
-    width: 40% !important;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     height: 40vh !important;
-    min-width: 40% !important;
+    min-width: 0 !important;
     min-height: 40vh !important;
   }
   
@@ -275,9 +283,11 @@
 /* TABLETS PEQUEÑAS (577px - 768px) - scale(0.45) */
 @media (min-width: 577px) and (max-width: 768px) {
   .image-container.full-right-image {
-    width: 40% !important;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     height: 40vh !important;
-    min-width: 40% !important;
+    min-width: 0 !important;
     min-height: 40vh !important;
   }
   
@@ -291,9 +301,11 @@
 /* TABLETS (769px - 1023px) - scale(0.5) */
 @media (min-width: 769px) and (max-width: 1023px) {
   .image-container.full-right-image {
-    width: 40% !important;
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     height: 40vh !important;
-    min-width: 40% !important;
+    min-width: 0 !important;
     min-height: 40vh !important;
   }
   

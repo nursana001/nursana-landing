@@ -1,3 +1,44 @@
+@media (max-width: 1023px) {
+  .image-container.full-right-image::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 10%;
+  background: #fff2e3 !important;
+    z-index: 20;
+    pointer-events: none;
+    display: block;
+  }
+}
+@media (max-width: 1023px) {
+  .image-container.full-right-image {
+    width: 100vw !important;
+    height: 35vh !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    overflow: hidden !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 10 !important;
+  }
+  .image-container.full-right-image .rounded-image,
+  .image-container.full-right-image img {
+    width: 100vw !important;
+    height: 35vh !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+}
 @media (max-width: 576px) {
   #hero-title-block {
     margin-top: -3.5rem !important;
@@ -101,7 +142,7 @@
   .image-container.full-right-image {
     position: relative !important;
     width: 100vw !important;
-    height: 50vh !important; /* Aumentado de 33vh a 50vh para ocupar más espacio */
+  height: 40vh !important; /* Ahora ocupa solo el 40% del alto de la pantalla en móviles/tablets */
     right: auto !important;
     top: auto !important;
     margin: 0 !important; /* Eliminados todos los márgenes */
