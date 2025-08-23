@@ -188,13 +188,18 @@ html {
   box-shadow: 0 10px 25px rgba(153, 188, 171, 0.2);
 }
 
-.cta-button {
+.cta-button,
+.btn-contacta {
   transition: all 0.3s ease;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.btn-contacta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(153, 188, 171, 0.3);
+  background-color: #99bcab !important;
+  color: #fff !important;
+  border-color: #99bcab !important;
 }
 
 /* Ajustes responsivos para diferentes tamaños de pantalla */
