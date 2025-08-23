@@ -22,7 +22,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
                   <Phone className="w-8 h-8" style={{color: '#7a9d8a'}} />
                 </div>
                 <h3 className="font-bold text-gray-800 mb-2">Teléfono</h3>
-                <p className="text-gray-600 mb-4">640 31 49 58</p>
+                <p className="text-gray-600 mb-4">681 88 27 17</p>
                 <Button 
                   onClick={handleCallClick}
                   variant="outline" 
