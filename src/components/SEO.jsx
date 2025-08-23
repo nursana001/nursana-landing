@@ -5,7 +5,7 @@ const SEO = ({
   title = null, // Será calculado dinámicamente si no se proporciona
   description = "Cuidados profesionales de enfermería para familias en Madrid: pendientes para bebés, lactancia, primeros auxilios y salus. Atención cercana y especializada", // Versión optimizada para redes sociales
   url = null, // Será calculada dinámicamente si no se proporciona
-  image = "https://www.nursana.es/assets/logonursana-og.png"
+  image = "https://www.nursana.es/logonursana-og.png"
 }) => {
   useEffect(() => {
     // Obtener información de la ruta actual
