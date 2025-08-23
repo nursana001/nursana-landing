@@ -3,11 +3,11 @@
     content: "";
     position: absolute;
     left: 0;
-    right: 0;
+  background: var(--background) !important;
     bottom: 0;
     width: 100vw;
     height: 10%;
-  background: #fff2e3 !important;
+  background: var(--background) !important;
     z-index: 20;
     pointer-events: none;
     display: block;
@@ -44,6 +44,11 @@
     margin-top: -3.5rem !important;
     position: relative;
     z-index: 2;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    /* Elimina cualquier fondo, borde o sombra heredada */
   }
   #hero-title-block h1.nursana-text-gradient {
     font-size: 1.75rem !important;

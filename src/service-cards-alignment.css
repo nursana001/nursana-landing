@@ -1,3 +1,30 @@
+@media (max-width: 320px) {
+  .service-card {
+    max-width: 95vw !important;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.92rem !important;
+    padding: 1.1rem 0.7rem !important;
+  }
+  .service-card button,
+  .service-card .service-card__button {
+    font-size: 0.95em !important;
+    padding: 0.6em 0.5em !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: block !important;
+  }
+  .service-card .service-card__icon {
+    font-size: 1.5em !important;
+    width: 2.2em !important;
+    height: 2.2em !important;
+  }
+}
 /**
  * Alineación de botones en tarjetas de servicios
  * Asegura que todos los botones "Solicitar información" estén a la misma distancia del borde inferior
@@ -59,9 +86,10 @@
   .service-card {
     min-height: auto !important;
   }
-  
   .services-section .grid {
     grid-template-columns: 1fr !important;
+    justify-content: center !important;
+    display: grid !important;
   }
 }
 
@@ -69,6 +97,11 @@
 @media (min-width: 769px) and (max-width: 1023px) {
   .service-card {
     min-height: 500px;
+  }
+  .services-section .grid {
+    grid-template-columns: 1fr 1fr !important;
+    justify-content: center !important;
+    display: grid !important;
   }
 }
 

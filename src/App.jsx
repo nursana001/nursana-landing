@@ -234,7 +234,7 @@ function App() {
         <div className="min-h-screen bg-background">
           {/* Hero Header */}
           <header className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
-            <div className="absolute inset-0 nursana-gradient opacity-10"></div>
+            {/* <div className="absolute inset-0 nursana-gradient opacity-10"></div> */}
             
             {/* Logo - responsive positioning for all sizes */}
             <div className="logo-container">
