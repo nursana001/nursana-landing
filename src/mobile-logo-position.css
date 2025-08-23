@@ -7,12 +7,12 @@
  */
 
 @media (max-width: 1023px) {
-  /* Logo en la esquina inferior izquierda para móviles y tablets */
+  /* Logo en la esquina inferior izquierda para móviles y tablets, pero más arriba para que sea visible */
   .logo-container {
     position: absolute !important;
-    bottom: 1rem !important; /* Posicionado desde abajo */
-    left: 1rem !important; /* Posicionado desde la izquierda */
-    top: auto !important; /* Anular posicionamiento desde arriba */
+    bottom: 3.5rem !important; /* Más arriba para que no quede oculto */
+    left: 1rem !important;
+    top: auto !important;
     right: auto !important;
     width: auto !important;
     z-index: 100 !important;
@@ -21,12 +21,10 @@
     align-items: center !important;
     transform: none !important;
   }
-  
-  /* Ajustar el tamaño del logo para la esquina inferior */
   .logo-container img {
-    height: 3rem !important; /* Aumentado de 2.5rem a 3rem */
-    width: auto !important; /* Mantener la proporción */
-    max-width: 120px !important; /* Aumentado el límite máximo de ancho */
+    height: 3rem !important;
+    width: auto !important;
+    max-width: 120px !important;
   }
 }
 
@@ -34,16 +32,15 @@
 @media (max-width: 768px) {
   .logo-container {
     position: absolute !important;
-    bottom: 1rem !important; /* Esquina inferior */
-    left: 1rem !important; /* Esquina izquierda */
+    bottom: 6rem !important; /* Mucho más arriba en tablets */
+    left: 1rem !important;
     top: auto !important;
     right: auto !important;
   }
-  
   .logo-container img {
-    height: 4rem !important; /* Aumentado considerablemente para tablets - de 2.75rem a 4rem */
-    max-width: 160px !important; /* Aumentado el límite máximo para accommodar el tamaño */
-    width: auto !important; /* Mantener proporción */
+    height: 4rem !important;
+    max-width: 160px !important;
+    width: auto !important;
   }
 }
 
@@ -51,15 +48,14 @@
 @media (max-width: 640px) {
   .logo-container {
     position: absolute !important;
-    bottom: 1rem !important; /* Esquina inferior */
-    left: 1rem !important; /* Esquina izquierda */
+    bottom: 3.5rem !important; /* Más arriba para móviles */
+    left: 1rem !important;
     top: auto !important;
     right: auto !important;
   }
-  
   .logo-container img {
-    height: 2.5rem !important; /* Aumentado de 2rem a 2.5rem para móviles */
-    max-width: 100px !important; /* Aumentado el límite máximo */
+    height: 2.5rem !important;
+    max-width: 100px !important;
   }
 }
 
@@ -67,15 +63,14 @@
 @media (max-width: 375px) {
   .logo-container {
     position: absolute !important;
-    bottom: 0.75rem !important; /* Esquina inferior con margen más pequeño */
-    left: 0.75rem !important; /* Esquina izquierda con margen más pequeño */
+    bottom: 2.5rem !important; /* Más arriba para móviles pequeños */
+    left: 0.75rem !important;
     top: auto !important;
     right: auto !important;
   }
-  
   .logo-container img {
-    height: 2.25rem !important; /* Aumentado de 1.75rem a 2.25rem para móviles pequeños */
-    max-width: 90px !important; /* Aumentado el límite máximo */
+    height: 2.25rem !important;
+    max-width: 90px !important;
   }
 }
 
