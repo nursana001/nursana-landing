@@ -29,12 +29,17 @@
   /* Estilos básicos del botón "Contacta ahora" en móviles y tablets */
   /* El posicionamiento se hace dinámicamente con JavaScript */
   .hero-section .btn-contacta {
-    /* No establecemos position ni top, se hace por JS */
-    width: auto !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+  /* No establecemos position ni top, se hace por JS */
+  width: auto !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: unset !important;
+  top: unset !important;
+  right: unset !important;
+  left: unset !important;
+  z-index: unset !important;
   }
   
   /* Ajustar el tamaño del icono para que sea proporcional */

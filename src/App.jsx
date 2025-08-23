@@ -18,6 +18,7 @@ import './mobile-reviews.css'; // Ajusta el ancho y texto de las reviews en móv
 import './mobile-carousel-buttons-fix.css'; // Ajusta los botones del carrusel de reviews para evitar solapamiento en móviles
 import './small-computer-service-button-fix.css'; // Corrige el tamaño del botón "Solicitar información" en ordenadores pequeños
 import './button-text-overflow-fix.css'; // Solución adicional para problemas específicos de desbordamiento de texto en botones
+import './service-bullet-align.css'; // Alinea correctamente los bullets en listas de servicios
 import './service-cards-alignment.css'; // Alineación correcta de botones en tarjetas de servicios
 import './horizontal-buttons-fix.css'; // Nueva solución para que los botones aparezcan uno al lado del otro
 // Importaciones optimizadas para performance - preload de imágenes críticas
@@ -89,7 +90,7 @@ const services = [
     title: "Puesta de pendientes",
     description: "Realizamos la colocación sanitaria de pendientes a tu bebé de manera segura, higiénica y sin dolor, utilizando material estéril y técnicas adaptadas a los más pequeños.",
     price: "80€",
-    includes: ["Asesoramiento previo", "Pendientes hipoalergénicos incluidos a elegir", "Cuidados posteriores"],
+  includes: ["Asesoramiento previo", "Pendientes hipoalergénicos a elegir", "Cuidados posteriores"],
     icon: <Baby className="w-8 h-8 text-primary" />
   },
   {
@@ -134,37 +135,26 @@ function App() {
     }
 
     function positionContactButton() {
-      // NO ejecutar la función de alineación en móviles y tablets
-      // porque queremos el logo abajo-izquierda y el botón arriba-derecha independientes
-      return;
-
-      if (!isMobileOrTablet()) return;
-
-      // Obtener el logo y el botón de contacto
-      const logoContainer = document.querySelector('.logo-container');
-      const logoImg = logoContainer ? logoContainer.querySelector('img') : null;
       const contactButton = document.querySelector('.hero-section .btn-contacta');
-      
-      if (!logoImg || !contactButton) return;
-      
-      // Obtener la posición y dimensiones del logo
-      const logoRect = logoImg.getBoundingClientRect();
-      
-      // Calcular el centro vertical de la palabra "Nursana" en el logo
-      // (asumimos que la palabra está aproximadamente en el 50% de la altura del logo)
-      const logoCenterY = logoRect.top + (logoRect.height * 0.5);
-      
-      // Obtener dimensiones del botón
-      const buttonRect = contactButton.getBoundingClientRect();
-      
-      // Posicionar el botón para que su centro vertical se alinee con el centro de la palabra "Nursana"
-      const topPosition = logoCenterY - (buttonRect.height / 2);
-      
-      // Aplicar la posición calculada
-      contactButton.style.position = 'fixed';
-      contactButton.style.top = `${topPosition}px`;
-      contactButton.style.right = '2.5rem';
-      contactButton.style.zIndex = '100';
+      if (!contactButton) return;
+      if (isMobileOrTablet()) {
+        contactButton.style.setProperty('position', 'fixed', 'important');
+        contactButton.style.setProperty('top', '1.2rem', 'important');
+        contactButton.style.setProperty('right', '1.2rem', 'important');
+        contactButton.style.setProperty('left', 'auto', 'important');
+        contactButton.style.setProperty('z-index', '120', 'important');
+        contactButton.style.setProperty('width', 'auto', 'important');
+        contactButton.style.setProperty('max-width', '90vw', 'important');
+      } else {
+        contactButton.style.setProperty('position', '', 'important');
+        contactButton.style.setProperty('top', '', 'important');
+        contactButton.style.setProperty('right', '', 'important');
+        contactButton.style.setProperty('left', '', 'important');
+        contactButton.style.setProperty('z-index', '', 'important');
+        contactButton.style.setProperty('width', '', 'important');
+        contactButton.style.setProperty('max-width', '', 'important');
+        contactButton.style.display = '';
+      }
     }
 
     // Posicionar inicialmente después de que todo esté cargado
@@ -188,20 +178,18 @@ function App() {
   // Controlar visibilidad del botón de contacto en móviles y tablets
   useEffect(() => {
     function handleContactButtonVisibility() {
-      // Solo en móviles y tablets
-      if (window.innerWidth > 1023) return;
-
       const contactButton = document.querySelector('.hero-section .btn-contacta');
-      
       if (!contactButton) return;
-
-      // Usar scroll position simple - ocultar después de hacer scroll 200px
-      const scrollY = window.scrollY;
-      
-      if (scrollY > 200) {
-        contactButton.style.display = 'none';
+      if (window.innerWidth <= 1023) {
+        // Solo en móviles/tablets: ocultar al hacer scroll
+        if (window.scrollY > 200) {
+          contactButton.style.setProperty('display', 'none', 'important');
+        } else {
+          contactButton.style.setProperty('display', 'flex', 'important');
+        }
       } else {
-        contactButton.style.display = 'flex';
+        // En ordenadores: siempre visible, display por defecto
+        contactButton.style.setProperty('display', '', 'important');
       }
     }
 
@@ -225,7 +213,7 @@ function App() {
   };
 
   const handleCallClick = () => {
-    window.open('tel:+34640314958', '_blank');
+  window.open('tel:+34681882717', '_blank');
   };
 
   const handleEmailClick = () => {
@@ -266,7 +254,7 @@ function App() {
             
             {/* Content Container - Now with responsive adjustments - moved down 1cm */}
             <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-18 h-full min-h-screen">
-              <div className="text-center fade-in w-full pb-16 md:pb-20">
+              <div id="hero-title-block" className="text-center fade-in w-full pb-16 md:pb-20">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
                   Servicios de enfermería neonatal y lactancia en Madrid
                 </h1>

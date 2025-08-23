@@ -3,9 +3,9 @@ import { getCurrentCanonicalUrl, getCurrentRouteInfo } from '../utils/canonicalU
 
 const SEO = ({ 
   title = null, // Será calculado dinámicamente si no se proporciona
-  description = null, // Será calculado dinámicamente si no se proporciona
+  description = "Cuidados profesionales de enfermería para familias en Madrid: pendientes para bebés, lactancia, primeros auxilios y salus. Atención cercana y especializada", // Versión optimizada para redes sociales
   url = null, // Será calculada dinámicamente si no se proporciona
-  image = "https://www.nursana.es/favicon.png"
+  image = "https://www.nursana.es/assets/logonursana-og.png"
 }) => {
   useEffect(() => {
     // Obtener información de la ruta actual
@@ -22,6 +22,7 @@ const SEO = ({
     document.title = dynamicTitle;
 
     // Update meta tags
+  // Definir la función antes de usarla
     const updateMetaTag = (name, content, attribute = 'name') => {
       let meta = document.querySelector(`meta[${attribute}="${name}"]`);
       if (!meta) {
@@ -31,6 +32,12 @@ const SEO = ({
       }
       meta.setAttribute('content', content);
     };
+
+  // WhatsApp/OG extra tags (después de definir la función)
+  updateMetaTag('og:image:secure_url', image, 'property');
+  updateMetaTag('og:image:type', 'image/png', 'property');
+  updateMetaTag('og:image:width', '1200', 'property');
+  updateMetaTag('og:image:height', '630', 'property');
 
     // Basic meta tags
     updateMetaTag('description', dynamicDescription);

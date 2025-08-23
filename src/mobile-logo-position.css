@@ -126,7 +126,7 @@
 @media (max-width: 1023px) {
   /* Mover el contenedor de texto hacia arriba - ajuste moderado */
   .hero-section .text-center.fade-in {
-    margin-top: -1.5rem !important; /* Reducido para evitar solapamiento */
+    /* margin-top eliminado para permitir desplazamiento desde mobile-layout-solution.css */
     padding-top: 1rem !important;
   }
 

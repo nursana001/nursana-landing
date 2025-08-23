@@ -37,9 +37,9 @@ const ServicesSection = ({ services, handleWhatsAppClick }) => {
                   <h4 className="font-semibold text-gray-800 mb-3">Incluye:</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
                     {service.includes.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center justify-center">
-                        <span className="w-2 h-2 rounded-full mr-2" style={{backgroundColor: '#99bcab'}}></span>
-                        {item}
+                      <li key={itemIndex} className="service-bullet-align text-left">
+                        <span className="service-bullet-dot w-2 h-2 rounded-full mr-2" style={{backgroundColor: '#99bcab'}}></span>
+                        <span className="service-bullet-text">{item}</span>
                       </li>
                     ))}
                   </ul>
