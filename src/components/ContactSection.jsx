@@ -26,7 +26,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
                 <Button 
                   onClick={handleCallClick}
                   variant="outline" 
-                  className="w-full transition-colors duration-300"
+                  className="w-full transition-colors duration-300 btn-contacta"
                   style={{
                     borderColor: '#99bcab',
                     color: '#7a9d8a'
@@ -47,7 +47,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
                 <Button 
                   onClick={handleEmailClick}
                   variant="outline" 
-                  className="w-full transition-colors duration-300"
+                  className="w-full transition-colors duration-300 btn-contacta"
                   style={{
                     borderColor: '#99bcab',
                     color: '#7a9d8a'
@@ -68,7 +68,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
                 <Button 
                   onClick={handleWhatsAppClick}
                   variant="outline" 
-                  className="w-full transition-colors duration-300"
+                  className="w-full transition-colors duration-300 btn-contacta"
                   style={{
                     borderColor: '#99bcab',
                     color: '#7a9d8a'
@@ -89,7 +89,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
                 <Button 
                   onClick={handleInstagramClick}
                   variant="outline" 
-                  className="w-full transition-colors duration-300"
+                  className="w-full transition-colors duration-300 btn-contacta"
                   style={{
                     borderColor: '#99bcab',
                     color: '#7a9d8a'
