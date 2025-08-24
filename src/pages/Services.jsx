@@ -10,7 +10,7 @@ const Services = () => {
       <SEO 
         title="Servicios de Enfermería Neonatal en Madrid | Nursana"
         description="Servicios profesionales de enfermería para bebés: asesoría de lactancia, puesta de pendientes, curso de primeros auxilios y cuidado nocturno en Madrid."
-        url="https://www.nursana.es/servicios"
+  url="https://www.nursana.es/"
       />
       
       {/* Header Placeholder - Will be shared component */}
