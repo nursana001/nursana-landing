@@ -11,7 +11,7 @@
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  min-height: 360px !important;
+  min-height: 252px !important;
   }
   /* Oculta el botón "Reserva tu cita" en tablets y móviles */
   .hero-section button.cta-button.btn-reserva,
