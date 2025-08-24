@@ -13,11 +13,8 @@ node_modules
 .pnp.js
 
 # Build outputs
-dist
-dist-ssr
 # docs  # Keep docs for GitHub Pages deployment
 *.local
-build
 coverage
 
 # Editor directories and files

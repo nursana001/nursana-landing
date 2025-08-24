@@ -5,7 +5,7 @@ import { Phone, Mail, MessageCircle, MapPin, Instagram } from 'lucide-react';
 
 const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick, handleInstagramClick }) => {
   return (
-    <section className="py-20" style={{backgroundColor: '#fff2e3'}}>
+    <section className="py-20 hero-section" style={{backgroundColor: '#fff2e3'}}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 nursana-text-gradient relative z-10" style={{lineHeight: '1.2', paddingBottom: '4px'}}>
@@ -17,7 +17,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-center card-content-contact">
                 <div className="mx-auto mb-4 p-3 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{backgroundColor: '#e8f0ec'}}>
                   <Phone className="w-8 h-8" style={{color: '#7a9d8a'}} />
                 </div>
@@ -38,7 +38,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
             </Card>
             
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-center card-content-contact">
                 <div className="mx-auto mb-4 p-3 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{backgroundColor: '#e8f0ec'}}>
                   <Mail className="w-8 h-8" style={{color: '#7a9d8a'}} />
                 </div>
@@ -59,7 +59,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
             </Card>
             
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-center card-content-contact">
                 <div className="mx-auto mb-4 p-3 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{backgroundColor: '#e8f0ec'}}>
                   <MessageCircle className="w-8 h-8" style={{color: '#7a9d8a'}} />
                 </div>
@@ -80,7 +80,7 @@ const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick
             </Card>
 
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-center card-content-contact">
                 <div className="mx-auto mb-4 p-3 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{backgroundColor: '#e8f0ec'}}>
                   <Instagram className="w-8 h-8" style={{color: '#7a9d8a'}} />
                 </div>

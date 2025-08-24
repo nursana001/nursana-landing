@@ -1,5 +1,9 @@
 /* Ajustes responsivos para móviles y tablets */
 @media screen and (max-width: 768px) {
+  .hero-section .card-content-contact {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
   /* Oculta el botón "Reserva tu cita" en tablets y móviles */
   .hero-section button.cta-button.btn-reserva,
   .hero-section .btn-reserva,
@@ -29,17 +33,18 @@
   /* Estilos básicos del botón "Contacta ahora" en móviles y tablets */
   /* El posicionamiento se hace dinámicamente con JavaScript */
   .hero-section .btn-contacta {
-  /* No establecemos position ni top, se hace por JS */
-  width: auto !important;
-  margin: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
   display: flex !important;
-  align-items: center !important;
   justify-content: center !important;
-  position: unset !important;
-  top: unset !important;
-  right: unset !important;
-  left: unset !important;
-  z-index: unset !important;
+  align-items: center !important;
+    position: unset !important;
+    top: unset !important;
+    right: unset !important;
+    left: unset !important;
+    z-index: unset !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   }
   
   /* Ajustar el tamaño del icono para que sea proporcional */
