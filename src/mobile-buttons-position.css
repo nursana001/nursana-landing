@@ -1,8 +1,17 @@
+  /* Añadir margen superior al grid de tarjetas de contacto en móviles/tablets */
+  .hero-section .grid.md\:grid-cols-2.lg\:grid-cols-4 {
+    margin-top: 2.5rem !important; /* 40px, equivalente a mt-10 */
+  }
 /* Ajustes responsivos para móviles y tablets */
 @media screen and (max-width: 768px) {
   .hero-section .card-content-contact {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 360px !important;
   }
   /* Oculta el botón "Reserva tu cita" en tablets y móviles */
   .hero-section button.cta-button.btn-reserva,
