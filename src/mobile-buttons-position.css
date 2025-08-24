@@ -42,19 +42,26 @@
   /* Estilos básicos del botón "Contacta ahora" en móviles y tablets */
   /* El posicionamiento se hace dinámicamente con JavaScript */
   .hero-section .btn-contacta {
-    width: 100% !important;
-    margin: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  min-width: 270px !important;
+  max-width: 360px !important;
+  width: 95% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     position: unset !important;
     top: unset !important;
     right: unset !important;
     left: unset !important;
     z-index: unset !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
   }
+  
+    /* Sobrescribe cualquier min-width y max-width previa en móviles/tablets */
+    .hero-section .card-content-contact .btn-contacta {
+      min-width: 270px !important;
+      max-width: 360px !important;
+      width: 95% !important;
+    }
   
   /* Ajustar el tamaño del icono para que sea proporcional */
   .hero-section .btn-contacta .btn-icon {
