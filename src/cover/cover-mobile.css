@@ -13,14 +13,20 @@
   /* On all tablets, increase the logo size by 50% */
   @media (min-width: 641px) and (max-width: 1024px) {
     .cover-logo {
-      height: 7.5rem !important; /* 5rem * 1.5 = 7.5rem */
-      max-width: 360px !important; /* 240px * 1.5 = 360px */
+      height: 9rem !important; /* 7.5rem * 1.2 = 9rem */
+      max-width: 432px !important; /* 360px * 1.2 = 432px */
+    }
+    .cover-menu-btn {
+      height: 9rem !important; /* 7.5rem * 1.2 = 9rem */
+    }
+    .cover-menu-icon {
+      font-size: 2.64rem !important; /* 2.2rem * 1.2 = 2.64rem */
     }
   }
   /* On all mobile sizes, move the cover titles up by 10% */
   @media (max-width: 640px) {
     .cover-titles {
-      transform: translateY(calc(-20% - 50px));
+      transform: translateY(calc(-20% - 50px + 20px));
     }
   }
   /* On tablets, triple the font size of the cover title and subtitle */
@@ -58,11 +64,16 @@
     box-sizing: border-box;
   }
   .cover-logo {
-    height: 5rem;
+    height: 5.5rem;
     width: auto;
-    max-width: 240px;
+    max-width: 264px;
     position: relative;
     z-index: 10;
+    filter: none !important;
+    opacity: 1 !important;
+    background: none !important;
+    box-shadow: none !important;
+    vertical-align: middle;
   }
   .cover-menu-btn {
     background: none;
@@ -74,7 +85,7 @@
     padding: 0.2rem 0.5rem;
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 5.5rem;
     margin-top: 0;
   }
   .cover-menu-window {

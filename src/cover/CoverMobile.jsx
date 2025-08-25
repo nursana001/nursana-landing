@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './cover-mobile.css';
-import logo from '../assets/logo_nursana_texto_oscuro.png';
+import logo from '../assets/logo_nursana_texto_vector.svg';
 import motherImg from '../assets/bebeportada3.jpeg';
 
 const CoverMobile = () => {
@@ -67,7 +67,7 @@ const CoverMobile = () => {
       </div>
       <div className="cover-titles" style={{position: 'relative', zIndex: 2}}>
   <h1 className="cover-title">Madre y bebé, cuidados expertos</h1>
-  <h2 className="cover-subtitle">Servicios de enfermería en Madrid</h2>
+  <h2 className="cover-subtitle">Enfermería neonatal en Madrid</h2>
       </div>
       {/* Eliminamos la imagen decorativa, ya que ahora es fondo */}
     </section>
