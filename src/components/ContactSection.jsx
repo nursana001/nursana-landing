@@ -5,7 +5,7 @@ import { Phone, Mail, MessageCircle, MapPin, Instagram } from 'lucide-react';
 
 const ContactSection = ({ handleCallClick, handleEmailClick, handleWhatsAppClick, handleInstagramClick }) => {
   return (
-    <section className="py-20 hero-section" style={{backgroundColor: '#fff2e3'}}>
+  <section className="py-20 contact-section" style={{backgroundColor: '#fff2e3'}}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 nursana-text-gradient relative z-10" style={{lineHeight: '1.2', paddingBottom: '4px'}}>

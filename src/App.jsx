@@ -32,6 +32,8 @@ import LazyImage from './components/LazyImage';
 import SEO from './components/SEO';
 import ErrorBoundary from './components/ErrorBoundary';
 import { preloadCriticalImages } from './utils/imagePerformance';
+import CoverMobile from './cover/CoverMobile';
+import useIsMobileOrTablet from './hooks/useIsMobileOrTablet';
 
 // Lazy loading para componentes no críticos
 const ReviewCarousel = lazy(() => import('./components/ReviewCarousel'));
@@ -111,6 +113,7 @@ const services = [
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+  const isMobileOrTablet = useIsMobileOrTablet();
 
   // Preload de imágenes críticas y manejo del splash screen
   useEffect(() => {
@@ -232,59 +235,59 @@ function App() {
       )}
       {!showSplash && (
         <div className="min-h-screen bg-background">
-          {/* Hero Header */}
-          <header className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
-            {/* <div className="absolute inset-0 nursana-gradient opacity-10"></div> */}
-            
-            {/* Logo - responsive positioning for all sizes */}
-            <div className="logo-container">
-              <img src={logonursana} alt="Nursana - Enfermera especializada en cuidado de bebés y madres en Madrid" className="splash-down" />
-            </div>
-            
-            {/* Image - responsive adjustments for different devices */}
-            {showSplash === false && (
-              <div className="image-container full-right-image">
-                <RoundedImage 
-                  src={motherImg} 
-                  alt="Madre con bebé recibiendo cuidados profesionales de enfermería especializada" 
-                  className="splash-right-to-left drop-shadow-xl rounded-image" 
-                />
+          {/* Hero Header: Show CoverMobile on mobile/tablet, legacy hero on desktop */}
+          {isMobileOrTablet ? (
+            <CoverMobile />
+          ) : (
+            <header className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
+              {/* <div className="absolute inset-0 nursana-gradient opacity-10"></div> */}
+              {/* Logo - responsive positioning for all sizes */}
+              <div className="logo-container">
+                <img src={logonursana} alt="Nursana - Enfermera especializada en cuidado de bebés y madres en Madrid" className="splash-down" />
               </div>
-            )}
-            
-            {/* Content Container - Now with responsive adjustments - moved down 1cm */}
-            <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-18 h-full min-h-screen">
-              <div id="hero-title-block" className="text-center fade-in w-full pb-16 md:pb-20">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
-                  Servicios de enfermería neonatal y lactancia en Madrid
-                </h1>
-                <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
-                  Apoyo profesional en los primeros días de tu bebé: lactancia, descanso y bienestar
-                </p>
-                {/* Contenedor simplificado con botones directamente horizontales */}
-                <div className="flex justify-center mt-10" id="horizontal-buttons-container">
-                  <Button 
-                    size="lg" 
-                    className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 py-3 mx-2"
-                    onClick={handleWhatsAppClick}
-                  >
-                    <MessageCircle className="btn-icon w-4 h-4 mr-2 flex-shrink-0" />
-                    <span>Reserva tu cita</span>
-                  </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 py-3 mx-2"
-                    onClick={handleCallClick}
-                  >
-                    <Phone className="btn-icon w-4 h-4 mr-2 flex-shrink-0" />
-                    <span>Contacta ahora</span>
-                  </Button>
+              {/* Image - responsive adjustments for different devices */}
+              {showSplash === false && (
+                <div className="image-container full-right-image">
+                  <RoundedImage 
+                    src={motherImg} 
+                    alt="Madre con bebé recibiendo cuidados profesionales de enfermería especializada" 
+                    className="splash-right-to-left drop-shadow-xl rounded-image" 
+                  />
+                </div>
+              )}
+              {/* Content Container - Now with responsive adjustments - moved down 1cm */}
+              <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-18 h-full min-h-screen">
+                <div id="hero-title-block" className="text-center fade-in w-full pb-16 md:pb-20">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
+                    Servicios de enfermería neonatal y lactancia en Madrid
+                  </h1>
+                  <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
+                    Apoyo profesional en los primeros días de tu bebé: lactancia, descanso y bienestar
+                  </p>
+                  {/* Contenedor simplificado con botones directamente horizontales */}
+                  <div className="flex justify-center mt-10" id="horizontal-buttons-container">
+                    <Button 
+                      size="lg" 
+                      className="cta-button btn-reserva bg-primary hover:bg-primary/90 text-white px-4 py-3 mx-2"
+                      onClick={handleWhatsAppClick}
+                    >
+                      <MessageCircle className="btn-icon w-4 h-4 mr-2 flex-shrink-0" />
+                      <span>Reserva tu cita</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="btn-contacta border-primary text-primary hover:bg-primary hover:text-white px-4 py-3 mx-2"
+                      onClick={handleCallClick}
+                    >
+                      <Phone className="btn-icon w-4 h-4 mr-2 flex-shrink-0" />
+                      <span>Contacta ahora</span>
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </header>
+            </header>
+          )}
 
           {/* Main content */}
           <main>
