@@ -1,14 +1,43 @@
 import React, { useState } from 'react';
 import './cover-mobile.css';
-import logo from '../assets/logo.png';
-import motherImg from '../assets/mother2.jpg';
+import logo from '../assets/logo_nursana_texto_oscuro.png';
+import motherImg from '../assets/bebeportada3.jpeg';
 
 const CoverMobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <section className="cover-mobile">
-      <div className="cover-header">
+    <section className="cover-mobile" style={{position: 'relative', minHeight: '100vh', overflow: 'hidden'}}>
+      {/* Imagen de fondo absoluta */}
+      <img 
+        src={motherImg}
+        alt="Mother and baby Nursana"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          objectPosition: 'center top',
+          zIndex: 0
+        }}
+      />
+      <div 
+        className="cover-header"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          zIndex: 2,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0.5rem 1.2rem 0 1.2rem',
+          boxSizing: 'border-box'
+        }}
+      >
         <img src={logo} alt="Nursana Logo" className="cover-logo" />
         <button
           className="cover-menu-btn"
@@ -36,13 +65,11 @@ const CoverMobile = () => {
           </>
         )}
       </div>
-      <div className="cover-titles">
-        <h1 className="cover-title">Servicios de enfermería neonatal y lactancia en Madrid</h1>
-        <h2 className="cover-subtitle">Apoyo profesional en los primeros días de tu bebé: lactancia, descanso y bienestar</h2>
+      <div className="cover-titles" style={{position: 'relative', zIndex: 2}}>
+  <h1 className="cover-title">Madre y bebé, cuidados expertos</h1>
+  <h2 className="cover-subtitle">Servicios de enfermería en Madrid</h2>
       </div>
-      <div className="cover-img-container">
-        <img src={motherImg} alt="Mother and baby Nursana" className="cover-img" />
-      </div>
+      {/* Eliminamos la imagen decorativa, ya que ahora es fondo */}
     </section>
   );
 };
