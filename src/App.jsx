@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
 import { Badge } from './components/ui/badge';
@@ -111,7 +112,9 @@ const services = [
   }
 ];
 
-function App() {
+import Blog from './pages/blog/Blog';
+
+function MainContent() {
   const [showSplash, setShowSplash] = useState(true);
   const isMobileOrTablet = useIsMobileOrTablet();
 
@@ -240,12 +243,9 @@ function App() {
             <CoverMobile />
           ) : (
             <header className="relative min-h-screen flex items-end justify-center overflow-hidden hero-section">
-              {/* <div className="absolute inset-0 nursana-gradient opacity-10"></div> */}
-              {/* Logo - responsive positioning for all sizes */}
               <div className="logo-container">
                 <img src={logonursana} alt="Nursana - Enfermera especializada en cuidado de bebés y madres en Madrid" className="splash-down" />
               </div>
-              {/* Image - responsive adjustments for different devices */}
               {showSplash === false && (
                 <div className="image-container full-right-image">
                   <RoundedImage 
@@ -255,7 +255,6 @@ function App() {
                   />
                 </div>
               )}
-              {/* Content Container - Now with responsive adjustments - moved down 1cm */}
               <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col justify-start pt-18 h-full min-h-screen">
                 <div id="hero-title-block" className="text-center fade-in w-full pb-16 md:pb-20">
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight w-full max-w-none mx-0 px-0 nursana-text-gradient mb-6" style={{wordBreak: 'break-word'}}>
@@ -264,7 +263,6 @@ function App() {
                   <p className="text-xl text-muted-foreground mt-6 max-w-4xl mx-auto">
                     Apoyo profesional en los primeros días de tu bebé: lactancia, descanso y bienestar
                   </p>
-                  {/* Contenedor simplificado con botones directamente horizontales */}
                   <div className="flex justify-center mt-10" id="horizontal-buttons-container">
                     <Button 
                       size="lg" 
@@ -295,7 +293,6 @@ function App() {
             <article className="py-20 bg-white">
               <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
-                {/* En pantallas grandes (Desktop), esta div aparece a la izquierda */}
                 <div className="slide-in-left desktop-only">
                   <LazyImage 
                     src={madreCogiendo}
@@ -304,7 +301,6 @@ function App() {
                     loading="lazy"
                   />
                 </div>
-                {/* Contenido de texto que aparecerá primero en móviles/tablets */}
                 <div className="slide-in-right">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 nursana-text-gradient">
                     Sobre mi
@@ -329,7 +325,6 @@ function App() {
                       Apoyo profesional
                     </Badge>
                   </div>
-                  {/* Esta imagen solo aparecerá en móviles/tablets, debajo del texto */}
                   <div className="mobile-tablet-only mt-8 pt-4">
                     <LazyImage 
                       src={madreCogiendo}
@@ -425,6 +420,17 @@ function App() {
         </div>
       )}
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainContent />} />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
+    </Router>
   );
 }
 
