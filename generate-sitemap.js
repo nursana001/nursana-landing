@@ -32,11 +32,22 @@ const robotsPath = path.join(__dirname, 'docs', 'robots.txt');
 fs.writeFileSync(robotsPath, robotsContent, 'utf8');
 console.log('✅ Robots.txt generado en:', robotsPath);
 
+
 console.log('\n📊 URLs incluidas en el sitemap:');
 import { siteRoutes } from './src/utils/seoRoutes.js';
 siteRoutes.forEach(route => {
   console.log(`  - ${BASE_URL}${route.path} (Priority: ${route.priority})`);
 });
+
+// Copiar CNAME a docs/ si existe en la raíz
+const cnameSrc = path.join(__dirname, 'CNAME');
+const cnameDest = path.join(docsDir, 'CNAME');
+if (fs.existsSync(cnameSrc)) {
+  fs.copyFileSync(cnameSrc, cnameDest);
+  console.log('✅ CNAME copiado a docs/');
+} else {
+  console.warn('⚠️  No se encontró CNAME en la raíz, no se copió a docs/.');
+}
 
 console.log('\n🚀 Para publicar en Google Search Console:');
 console.log(`1. Sitemap URL: ${BASE_URL}/sitemap.xml`);
