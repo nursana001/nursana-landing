@@ -1,3 +1,15 @@
+/* Centrado vertical del bloque de portada en pantallas grandes (solo desktop, no móviles/tablets) */
+@media (min-width: 1367px) {
+  .hero-section > .container {
+    justify-content: center !important;
+  padding-top: 20rem !important;
+    padding-bottom: 4rem !important;
+    min-height: 80vh !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
 /**
  * Soluciones para dispositivos de ordenador:
  * 1. Eliminar el espacio en blanco superior en ordenadores pequeños (14 pulgadas)
