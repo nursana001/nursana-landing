@@ -6,48 +6,6 @@ export const siteRoutes = [
     changefreq: 'monthly',
     title: 'Enfermera neonatal y lactancia Madrid',
     description: 'Servicios profesionales de enfermería neonatal para bebés y madres en Madrid'
-  },
-  {
-    path: '/servicios',
-    priority: '0.9',
-    changefreq: 'monthly',
-    title: 'Servicios de Enfermería Neonatal en Madrid | Nursana',
-    description: 'Servicios profesionales de enfermería para bebés: asesoría de lactancia, puesta de pendientes, curso de primeros auxilios y cuidado nocturno en Madrid'
-  },
-  {
-    path: '/servicios/asesoria-lactancia-madrid',
-    priority: '0.8',
-    changefreq: 'monthly',
-    title: 'Asesoría de Lactancia Materna en Madrid | Nursana',
-    description: 'Asesoría personalizada de lactancia materna a domicilio en Madrid. Enfermera especializada en lactancia materna y cuidados neonatales'
-  },
-  {
-    path: '/servicios/puesta-pendientes-bebe-madrid',
-    priority: '0.8',
-    changefreq: 'monthly',
-    title: 'Puesta de Pendientes para Bebés en Madrid | Nursana',
-    description: 'Colocación segura e higiénica de pendientes para bebés en Madrid. Enfermera especializada con técnicas profesionales'
-  },
-  {
-    path: '/servicios/curso-primeros-auxilios-bebes-madrid',
-    priority: '0.8',
-    changefreq: 'monthly',
-    title: 'Curso de Primeros Auxilios para Bebés en Madrid | Nursana',
-    description: 'Curso de primeros auxilios para bebés y niños en Madrid. Aprende técnicas de RCP, atragantamiento y emergencias pediátricas'
-  },
-  {
-    path: '/servicios/cuidado-nocturno-bebe-madrid',
-    priority: '0.8',
-    changefreq: 'monthly',
-    title: 'Cuidado Nocturno de Bebés en Madrid - Salus | Nursana',
-    description: 'Servicio de cuidado nocturno profesional para bebés en Madrid. Enfermera especializada para que puedas descansar'
-  },
-  {
-    path: '/contacto',
-    priority: '0.7',
-    changefreq: 'monthly',
-    title: 'Contacto - Nursana | Enfermería Neonatal Madrid',
-    description: 'Contacta con Nursana para servicios de enfermería neonatal en Madrid. WhatsApp, email y redes sociales'
   }
 ];
 
