@@ -33,8 +33,8 @@ const Header = () => {
             ) : (
               <>
                 <Link to="/" className="text-gray-700 hover:text-[#99bcab] transition-colors">Inicio</Link>
-                <Link to="/servicios" className="text-gray-700 hover:text-[#99bcab] transition-colors">Servicios</Link>
-                <Link to="/contacto" className="text-gray-700 hover:text-[#99bcab] transition-colors">Contacto</Link>
+                {/* <Link to="/servicios" className="text-gray-700 hover:text-[#99bcab] transition-colors">Servicios</Link> */}
+                {/* <Link to="/contacto" className="text-gray-700 hover:text-[#99bcab] transition-colors">Contacto</Link> */}
               </>
             )}
           </div>
