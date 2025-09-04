@@ -6,6 +6,13 @@ export const siteRoutes = [
     changefreq: 'monthly',
     title: 'Enfermera neonatal y lactancia Madrid',
     description: 'Servicios profesionales de enfermería neonatal para bebés y madres en Madrid'
+  },
+  {
+    path: '/blog',
+    priority: '0.8',
+    changefreq: 'weekly',
+    title: 'Blog Nursana - Consejos y guías para el cuidado de bebés',
+    description: 'Artículos especializados sobre lactancia, cuidado neonatal y maternidad por enfermera especializada'
   }
 ];
 

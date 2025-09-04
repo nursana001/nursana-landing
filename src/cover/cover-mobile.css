@@ -1,6 +1,6 @@
 @media (min-width: 641px) and (max-width: 1024px) {
   .cover-titles {
-    transform: translateY(-250px);
+    transform: translateY(-150px);
   }
 }
   .cover-header-blur {
@@ -89,19 +89,98 @@
     margin-top: 0;
   }
   .cover-menu-window {
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-    width: 360px;
-    height: 360px;
-    background: rgba(153, 188, 171, 0.5);
-    border-radius: 2.4rem;
-    z-index: 30;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+    position: fixed;
+    top: 6rem;
+    right: 1rem;
+    width: min(300px, calc(100vw - 2rem));
+    height: auto;
+    background: #fff2e3;
+    border-radius: 1.2rem;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(122, 157, 138, 0.2);
+    padding: 1.2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Responsive adjustments for mobile */
+  @media (max-width: 480px) {
+    .cover-menu-window {
+      width: min(280px, calc(100vw - 1.5rem));
+      right: 0.75rem;
+      top: 5rem;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .cover-menu-window {
+      width: min(250px, calc(100vw - 1rem));
+      right: 0.5rem;
+      top: 4.5rem;
+      padding: 0.8rem;
+    }
+  }
+  
+  .cover-menu-nav {
+    width: 100%;
+  }
+  
+  .cover-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .cover-menu-item {
+    width: 100%;
+  }
+  
+  .cover-menu-link {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a6657;
+    cursor: pointer;
+    border-radius: 0.6rem;
+    transition: all 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+    gap: 0.6rem;
+  }
+  
+  /* Responsive font sizes */
+  @media (max-width: 480px) {
+    .cover-menu-link {
+      font-size: 0.9rem;
+      padding: 0.7rem 0.8rem;
+      gap: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .cover-menu-link {
+      font-size: 0.85rem;
+      padding: 0.6rem 0.7rem;
+      gap: 0.4rem;
+    }
+  }
+  
+  .cover-menu-link:hover {
+    background: rgba(122, 157, 138, 0.15);
+    color: #3a5247;
+    transform: translateX(4px);
   }
   .cover-titles {
     text-align: center;

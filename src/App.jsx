@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
 import { Badge } from './components/ui/badge';
@@ -117,6 +117,7 @@ import Blog from './pages/blog/Blog';
 function MainContent() {
   const [showSplash, setShowSplash] = useState(true);
   const isMobileOrTablet = useIsMobileOrTablet();
+  const location = useLocation();
 
   // Preload de imágenes críticas y manejo del splash screen
   useEffect(() => {
@@ -131,6 +132,26 @@ function MainContent() {
       clearTimeout(timer);
     };
   }, []);
+
+  // Handle navigation from blog page to main page sections
+  useEffect(() => {
+    if (location.state?.scrollTo && !showSplash) {
+      const target = location.state.scrollTo;
+      const element = document.getElementById(target);
+      if (element) {
+        // Small delay to ensure the main page has rendered completely
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300);
+      }
+      
+      // Clear the state to prevent re-scrolling on component updates
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state, showSplash]);
 
   // Posicionamiento dinámico del botón "Contacta ahora" en dispositivos móviles y tablets
   useEffect(() => {
@@ -290,7 +311,7 @@ function MainContent() {
           {/* Main content */}
           <main>
             {/* Sobre Nursana Article */}
-            <article className="py-20 bg-white">
+            <article id="sobre-nursana" className="py-20 bg-white">
               <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <div className="slide-in-left desktop-only">
@@ -303,7 +324,7 @@ function MainContent() {
                 </div>
                 <div className="slide-in-right">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 nursana-text-gradient">
-                    Sobre mi
+                    Sobre Nursana
                   </h2>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     Soy María, tengo 32 años y soy enfermera. Terminé la carrera en 2015 y desde entonces he desarrollado mi vocación en distintos ámbitos relacionados con la salud infantil y materna. He trabajado en urgencias —incluyendo las pediátricas—, en la UCI neonatal y actualmente formo parte de una planta de maternidad, donde acompañamos muy de cerca a las familias en el inicio de la lactancia.
@@ -339,16 +360,18 @@ function MainContent() {
           </article>
 
           {/* Servicios Section */}
-          <ErrorBoundary>
-            <Suspense fallback={
-              <div className="py-20 text-center">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                <p className="mt-2 text-muted-foreground">Cargando servicios...</p>
-              </div>
-            }>
-              <ServicesSection services={services} handleWhatsAppClick={handleWhatsAppClick} />
-            </Suspense>
-          </ErrorBoundary>
+          <section id="servicios">
+            <ErrorBoundary>
+              <Suspense fallback={
+                <div className="py-20 text-center">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                  <p className="mt-2 text-muted-foreground">Cargando servicios...</p>
+                </div>
+              }>
+                <ServicesSection services={services} handleWhatsAppClick={handleWhatsAppClick} />
+              </Suspense>
+            </ErrorBoundary>
+          </section>
 
           {/* Reviews Section */}
           <section className="py-20 bg-white">
@@ -375,21 +398,23 @@ function MainContent() {
           </section>
 
           {/* Contacto Section */}
-          <ErrorBoundary>
-            <Suspense fallback={
-              <div className="py-20 text-center">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                <p className="mt-2 text-muted-foreground">Cargando contacto...</p>
-              </div>
-            }>
-              <ContactSection 
-                handleCallClick={handleCallClick}
-                handleEmailClick={handleEmailClick}
-                handleWhatsAppClick={handleWhatsAppClick}
-                handleInstagramClick={handleInstagramClick}
-              />
-            </Suspense>
-          </ErrorBoundary>
+          <section id="contacto">
+            <ErrorBoundary>
+              <Suspense fallback={
+                <div className="py-20 text-center">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                  <p className="mt-2 text-muted-foreground">Cargando contacto...</p>
+                </div>
+              }>
+                <ContactSection 
+                  handleCallClick={handleCallClick}
+                  handleEmailClick={handleEmailClick}
+                  handleWhatsAppClick={handleWhatsAppClick}
+                  handleInstagramClick={handleInstagramClick}
+                />
+              </Suspense>
+            </ErrorBoundary>
+          </section>
           </main>
 
           {/* Footer */}
